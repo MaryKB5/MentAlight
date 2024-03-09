@@ -27,4 +27,23 @@ public class Questionnaire {
             this.intro = intro;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public ArrayList<Question> getQuestions() {
+        return questions;
+    }
 }

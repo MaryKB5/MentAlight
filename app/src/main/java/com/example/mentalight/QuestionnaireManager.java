@@ -12,8 +12,17 @@ public class QuestionnaireManager {
         JSONObject jsonObject = new JSONObject(json);
         String title = jsonObject.getString("title");
         String intro = jsonObject.getString("intro_text");
-        String subtitle = jsonObject.getString("subtitle");
-        String prefix = jsonObject.getString("prefix");
+        String subtitle, prefix;
+        if(jsonObject.has("subtitle")){
+            subtitle = jsonObject.getString("subtitle");
+        } else {
+            subtitle = "";
+        }
+        if(jsonObject.has("prefix")){
+            prefix = jsonObject.getString("prefix");
+        } else {
+            prefix = "";
+        }
 
         if(jsonObject.has("sections")){
             ArrayList<Question> test = new ArrayList<Question>();

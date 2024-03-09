@@ -35,4 +35,15 @@ public class Question {
         return inputType;
     }
 
+    public InputType getInputType() {
+        return inputType;
+    }
+
+    public String getQuestionText() {
+        return questionText;
+    }
+
+    public String[] getInputText() {
+        return inputText;
+    }
 }
