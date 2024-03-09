@@ -3,7 +3,12 @@
     <style name="Base.Theme.MentAlight" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="android:textColor">@color/dark_blue</item>
+
     </style>
+
 
     <style name="Theme.MentAlight" parent="Base.Theme.MentAlight" />
 </resources>
