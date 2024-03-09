@@ -1,0 +1,67 @@
+{
+    "title": "Rosenberg Self-Esteem-Scale", 
+    "subtitle": "RSES",
+    "intro_text": "Bitte kreuze die Zahl an, deren Aussage für dich am stimmigsten ist. \n 0 = trifft gar nicht zu, \n 3 = trifft voll und ganz zu",
+    "questions": [
+        {
+            "quest_id": 1,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Alles in allem bin ich mit mir selbst zufrieden."
+        },
+        {
+            "quest_id": 2,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Hin und wieder denke ich, dass ich gar nichts tauge."
+        },
+        {
+            "quest_id": 3,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich besitze eine Reihe guter Eigenschaften."
+        },
+        {
+            "quest_id": 4,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich kann vieles genauso gut wie die meisten anderen Menschen auch."
+        },
+        {
+            "quest_id": 5,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich fürchte, es gibt nicht viel, worauf ich stolz sein kann."
+        },
+        {
+            "quest_id": 6,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich fühle mich von Zeit zu Zeit richtig nutzlos."
+        },
+        {
+            "quest_id": 7,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich halte mich für einen wertvollen Menschen, jedenfalls bin ich nicht weniger wertvoll als andere auch."
+        },
+        {
+            "quest_id": 8,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich wünschte, ich könnte vor mir selbst mehr Achtung haben."
+        },
+        {
+            "quest_id": 9,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Alles in allem neige ich dazu, mich für einen Versager zu halten."
+        },
+        {
+            "quest_id": 10,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich habe eine positive Einstellung zu mir selbst gefunden."
+        }
+    ]
+}

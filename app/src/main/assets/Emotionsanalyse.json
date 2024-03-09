@@ -1,0 +1,804 @@
+{
+    "title": "VDS32 Emotionsanalyse", 
+    "sections": [
+        {
+            "sec_id": 1,
+            "sec_title": "Emotionsanalyse I",
+            "sec_subtitle":"Meine Gefühle",
+            "sec_intro": "Nehme dir für die Analyse deiner Gefühle Zeit. Spüre (am besten mit geschlossenen Augen nach, ob du das betreffende Gefühl öfter hast. Kreuze dann an, wie oft (0 oder 1 oder 2). Bleibe beim gleichen Gefühl und entscheide, nachdem du in dich hinein gespürt hast, ob du dieses Gefühl akzeptierst oder ablehnst und ob es zu den Gefühlen gehört, die du kaum/nicht aushalten kannst bzw. zu jenen, die du dich kaum oder nicht traust zu haben. Gehe erst dann zum nächsten Gefühl weiter, wenn du all diesen Fragen nachgespürt habst.",
+            "subsections": [
+                {
+                    "subsec_id": 1,
+                    "sub_title": "Freude",
+                    "num_quest": 15,
+                    "questions": [
+                        {
+                            "quest_id": 1,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Freude"
+                        },
+                        {
+                            "quest_id": 1,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Freude"
+                        },
+                        {
+                            "quest_id": 2, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Begeisterung"
+                        },
+                        {
+                            "quest_id": 2, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Begeisterung"
+                        },
+                        {
+                            "quest_id": 3,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Glück"
+                        },
+                        {
+                            "quest_id": 3,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Glück"
+                        },
+                        {
+                            "quest_id": 4, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Übermut"
+                        },
+                        {
+                            "quest_id": 4, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Übermut"
+                        },
+                        {
+                            "quest_id": 5,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Leidenschaft"
+                        },
+                        {
+                            "quest_id": 5,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Leidenschaft"
+                        },
+                        {
+                            "quest_id": 6, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Lust"
+                        },
+                        {
+                            "quest_id": 6, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Lust"
+                        },
+                        {
+                            "quest_id": 7,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Zufriedenheit"
+                        },
+                        {
+                            "quest_id": 7,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Zufriedenheit"
+                        },
+                        {
+                            "quest_id": 8, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Stolz"
+                        },
+                        {
+                            "quest_id": 8, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Stolz"
+                        },
+                        {
+                            "quest_id": 9,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Selbstvertrauen"
+                        },
+                        {
+                            "quest_id": 9,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Selbstvertrauen"
+                        },
+                        {
+                            "quest_id": 10, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Gelassenheit"
+                        },
+                        {
+                            "quest_id": 10, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Gelassenheit"
+                        },
+                        {
+                            "quest_id": 11,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Überlegenheit"
+                        },
+                        {
+                            "quest_id": 11,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Überlegenheit"
+                        },
+                        {
+                            "quest_id": 12, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Dankbarkeit"
+                        },
+                        {
+                            "quest_id": 12, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Dankbarkeit"
+                        },
+                        {
+                            "quest_id": 13, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Vertrauen"
+                        },
+                        {
+                            "quest_id": 13, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Vertrauen"
+                        },
+                        {
+                            "quest_id": 14, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Zuneigung, Liebe"
+                        },
+                        {
+                            "quest_id": 14, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Zuneigung, Liebe"
+                        },
+                        {
+                            "quest_id": 15, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Rührung"
+                        },
+                        {
+                            "quest_id": 15, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Rührung"
+                        }
+                    ]
+                },
+                {
+                    "subsec_id": 2,
+                    "sub_title": "Trauer",
+                    "num_quest": 8,
+                    "questions": [
+                        {
+                            "quest_id": 1,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Traurigkeit"
+                        },
+                        {
+                            "quest_id": 1,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Traurigkeit"
+                        },
+                        {
+                            "quest_id": 2, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Verzweiflung"
+                        },
+                        {
+                            "quest_id": 2, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Verzweiflung"
+                        },
+                        {
+                            "quest_id": 3,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Sehnsucht"
+                        },
+                        {
+                            "quest_id": 3,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Sehnsucht"
+                        },
+                        {
+                            "quest_id": 4, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Einsamkeit"
+                        },
+                        {
+                            "quest_id": 4, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Einsamkeit"
+                        },
+                        {
+                            "quest_id": 5,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Leere, Langeweile"
+                        },
+                        {
+                            "quest_id": 5,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Leere, Langeweile"
+                        },
+                        {
+                            "quest_id": 6, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Enttäuschung"
+                        },
+                        {
+                            "quest_id": 6, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Enttäuschung"
+                        },
+                        {
+                            "quest_id": 7,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Beleidigtsein"
+                        },
+                        {
+                            "quest_id": 7,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Beleidigtsein"
+                        },
+                        {
+                            "quest_id": 8, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Mitgefühl"
+                        },
+                        {
+                            "quest_id": 8, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Mitgefühl"
+                        }
+                    ]
+                },
+                {
+                    "subsec_id": 3,
+                    "sub_title": "Angst",
+                    "num_quest": 11,
+                    "questions": [
+                        {
+                            "quest_id": 1,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Angst, Furcht"
+                        },
+                        {
+                            "quest_id": 1,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Angst, Furcht"
+                        },
+                        {
+                            "quest_id": 2, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Anspannung und Nervosität"
+                        },
+                        {
+                            "quest_id": 2, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Anspannung und Nervosität"
+                        },
+                        {
+                            "quest_id": 3,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Verlegenheit"
+                        },
+                        {
+                            "quest_id": 3,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Verlegenheit"
+                        },
+                        {
+                            "quest_id": 4, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Selbstunsicherheit"
+                        },
+                        {
+                            "quest_id": 4, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Selbstunsicherheit"
+                        },
+                        {
+                            "quest_id": 5,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Unterlegenheit"
+                        },
+                        {
+                            "quest_id": 5,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Unterlegenheit"
+                        },
+                        {
+                            "quest_id": 6, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Scham"
+                        },
+                        {
+                            "quest_id": 6, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Scham"
+                        },
+                        {
+                            "quest_id": 7,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Schuldgefühl"
+                        },
+                        {
+                            "quest_id": 7,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Schuldgefühl"
+                        },
+                        {
+                            "quest_id": 8, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Reue"
+                        },
+                        {
+                            "quest_id": 8, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Reue"
+                        },
+                        {
+                            "quest_id": 9,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Sorge"
+                        },
+                        {
+                            "quest_id": 9,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Sorge"
+                        },
+                        {
+                            "quest_id": 10, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Ekel"
+                        },
+                        {
+                            "quest_id": 10, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Ekel"
+                        },
+                        {
+                            "quest_id": 11,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Schreck"
+                        },
+                        {
+                            "quest_id": 11,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Schreck"
+                        }
+                    ]
+                },
+                {
+                    "subsec_id": 4,
+                    "sub_title": "Wut",
+                    "num_quest": 9,
+                    "questions": [
+                        {
+                            "quest_id": 1,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Ärger, Wut, Zorn"
+                        },
+                        {
+                            "quest_id": 1,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Ärger, Wut, Zorn"
+                        },
+                        {
+                            "quest_id": 2, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Missmut"
+                        },
+                        {
+                            "quest_id": 2, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Missmut"
+                        },
+                        {
+                            "quest_id": 3,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Ungeduld"
+                        },
+                        {
+                            "quest_id": 3,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Ungeduld"
+                        },
+                        {
+                            "quest_id": 4, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Widerwille, Trotz"
+                        },
+                        {
+                            "quest_id": 4, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Widerwille, Trotz"
+                        },
+                        {
+                            "quest_id": 5,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Abneigung, Hass"
+                        },
+                        {
+                            "quest_id": 5,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Abneigung, Hass"
+                        },
+                        {
+                            "quest_id": 6, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Verachtung"
+                        },
+                        {
+                            "quest_id": 6, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Verachtung"
+                        },
+                        {
+                            "quest_id": 7,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Misstrauen"
+                        },
+                        {
+                            "quest_id": 7,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Misstrauen"
+                        },
+                        {
+                            "quest_id": 8, 
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Neid"
+                        },
+                        {
+                            "quest_id": 8, 
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht aus", "traue ich mich kaum/ nicht"],
+                            "question_text": "Neid"
+                        },
+                        {
+                            "quest_id": 9,
+                            "type": "chips",
+                            "input_text": ["0", "1", "2"],
+                            "question_text": "Eifersucht"
+                        },
+                        {
+                            "quest_id": 9,
+                            "type": "likert_scale",
+                            "input_text": ["akzeptiere ich", "lehne ich ab", "halte ich kaum bzw. nicht out", "traue ich mich kaum/ nicht"],
+                            "question_text": "Eifersucht"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sec_id": 2,
+            "sec_title": "Emotionsanalyse II",
+            "sec_subtitle": "Mein Umgang mit meinen Gefühlen",
+            "sec_intro": "Bisheriger dysfunktionaler Umgang mit Gefühlen",
+            "prefix":"Bisher ging ich so mit meinen Gefühlen um ... 0=nein, 1=etwas, 2=mittel, 3=sehr",
+            "questions": [
+                {
+                    "quest_id": 1,
+                    "type": "chips",
+                    "input_text": ["0", "1", "2", "3"],
+                    "question_text": "Ich kann nichts gegen mein Gefühl tun, es ist so intensiv und beherrscht mich"
+                },
+                {
+                    "quest_id": 1,
+                    "type": "free_text",
+                    "question_text": "Bei welchem Gefühl?"
+                },
+                {
+                    "quest_id": 2,
+                    "type": "chips",
+                    "input_text": ["0", "1", "2", "3"],
+                    "question_text": "Ich nehme einfach kein Gefühl wahr, obwohl ich weiß, daß ich Grund zu diesem Gefühl habe"
+                },
+                {
+                    "quest_id": 2,
+                    "type": "free_text",
+                    "question_text": "Bei welchem Gefühl?"
+                },
+                {
+                    "quest_id": 3,
+                    "type": "chips",
+                    "input_text": ["0", "1", "2", "3"],
+                    "question_text": "Ich habe das Gefühl nur ganz schwach"
+                },
+                {
+                    "quest_id": 3,
+                    "type": "free_text",
+                    "question_text": "Bei welchem Gefühl?"
+                },
+                {
+                    "quest_id": 4,
+                    "type": "chips",
+                    "input_text": ["0", "1", "2", "3"],
+                    "question_text": "Vorsorglich passe ich gut auf, daß keine Situation kommt, in der ich dieses Gefühl habe"
+                },
+                {
+                    "quest_id": 4,
+                    "type": "free_text",
+                    "question_text": "Bei welchem Gefühl?"
+                },
+                {
+                    "quest_id": 5,
+                    "type": "chips",
+                    "input_text": ["0", "1", "2", "3"],
+                    "question_text": "Ich nehme ein ganz anderes Gefühl wahr als das zur Situation eigentlich passende"
+                },
+                {
+                    "quest_id": 5,
+                    "type": "free_text",
+                    "question_text": "Bei welchem Gefühl?"
+                },
+                {
+                    "quest_id": 6,
+                    "type": "chips",
+                    "input_text": ["0", "1", "2", "3"],
+                    "question_text": "Ich reagiere eher körperlich als mit den Gefühlen"
+                },
+                {
+                    "quest_id": 6,
+                    "type": "free_text",
+                    "question_text": "Bei welchem Gefühl?"
+                },
+                {
+                    "quest_id": 7,
+                    "type": "chips",
+                    "input_text": ["0", "1", "2", "3"],
+                    "question_text": "Ich lenke mich ab, sage mir, daß es keinen Grund für dieses Gefühl gibt"
+                },
+                {
+                    "quest_id": 7,
+                    "type": "free_text",
+                    "question_text": "Bei welchem Gefühl?"
+                },
+                {
+                    "quest_id": 8,
+                    "type": "chips",
+                    "input_text": ["0", "1", "2", "3"],
+                    "question_text": "Ich lasse mir nichts anmerken, reagiere eher sachlich oder zurückhaltend"
+                },
+                {
+                    "quest_id": 8,
+                    "type": "free_text",
+                    "question_text": "Bei welchem Gefühl?"
+                },
+                {
+                    "quest_id": 9,
+                    "type": "chips",
+                    "input_text": ["0", "1", "2", "3"],
+                    "question_text": "Mein Gefühl geht in eine Stimmung oder Verstimmung über, die einige Zeit anhält"
+                },
+                {
+                    "quest_id": 9,
+                    "type": "free_text",
+                    "question_text": "Bei welchem Gefühl?"
+                },
+                {
+                    "quest_id": 10,
+                    "type": "chips",
+                    "input_text": ["0", "1", "2", "3"],
+                    "question_text": "Ich bleibe sehr lange in einem starken Gefühl hängen und komme nicht mehr daraus heraus"
+                },
+                {
+                    "quest_id": 10,
+                    "type": "free_text",
+                    "question_text": "Bei welchem Gefühl?"
+                },
+                {
+                    "quest_id": 11,
+                    "type": "chips",
+                    "input_text": ["0", "1", "2", "3"],
+                    "question_text": "Ich empfinde mich selbst fremd oder unwirklich"
+                },
+                {
+                    "quest_id": 11,
+                    "type": "free_text",
+                    "question_text": "Bei welchem Gefühl?"
+                },
+                {
+                    "quest_id": 12,
+                    "type": "chips",
+                    "input_text": ["0", "1", "2", "3"],
+                    "question_text": "Ich verstumme völlig. Man merkt mir nicht an, daß ich alle Ereignisse trotzdem sehr wach wahrnehme"
+                },
+                {
+                    "quest_id": 12,
+                    "type": "free_text",
+                    "question_text": "Bei welchem Gefühl?"
+                },
+                {
+                    "quest_id": 13,
+                    "type": "chips",
+                    "input_text": ["0", "1", "2", "3"],
+                    "question_text": "Ich werde völlig bewegungslos, als ob ich erstarrt wäre"
+                },
+                {
+                    "quest_id": 13,
+                    "type": "free_text",
+                    "question_text": "Bei welchem Gefühl?"
+                }
+            ]
+        },
+        {
+            "sec_id": 3,
+            "sec_title": "Emotionsanalyse III",
+            "sec_subtitle": "Reaktion Anderer",
+            "sec_intro": "Wie reagieren Ihre Bezugspersonen auf Ihren Umgang mit Ihren Gefühlen?",
+            "prefix":"Auf meine verschiedenen Umgangsarten mit meinen Gefühlen reagieren meine wichtigen Bezugspersonen wiederholt so:",
+            "num_quest": 17,
+            "questions": [
+                {
+                    "quest_id": 1,
+                    "type": "checkbox",
+                    "question_text": "Er/sie merkt gar nicht, daß ich dieses Gefühl habe"
+                },
+                {
+                    "quest_id": 2,
+                    "type": "checkbox",
+                    "question_text": "Er/sie sagt, es gäbe doch keinen Grund für dieses Gefühl"
+                },
+                {
+                    "quest_id": 3,
+                    "type": "checkbox",
+                    "question_text": "Er/sie sagt, ich solle mich doch zusammenreißen"
+                },
+                {
+                    "quest_id": 4,
+                    "type": "checkbox",
+                    "question_text": "Er/sie versteht nicht, was ich brauche"
+                },
+                {
+                    "quest_id": 5,
+                    "type": "checkbox",
+                    "question_text": "Er/sie sagt Dinge, die das Gefühl noch stärker machen"
+                },
+                {
+                    "quest_id": 6,
+                    "type": "checkbox",
+                    "question_text": "Er/sie zeigt keinerlei Gefühle, bleibt kalt"
+                },
+                {
+                    "quest_id": 7,
+                    "type": "checkbox",
+                    "question_text": "Er/sie wird ärgerlich, wütend"
+                },
+                {
+                    "quest_id": 8,
+                    "type": "checkbox",
+                    "question_text": "Er/sie lehnt mich ab, weist mich ab"
+                },
+                {
+                    "quest_id": 9,
+                    "type": "checkbox",
+                    "question_text": "Er/sie bestraft mich mit Liebesentzug"
+                },
+                {
+                    "quest_id": 10,
+                    "type": "checkbox",
+                    "question_text": "Er/sie rechtfertigt sich"
+                },
+                {
+                    "quest_id": 11,
+                    "type": "checkbox",
+                    "question_text": "Er/sie versucht, sich mit Ausreden rauszureden"
+                },
+                {
+                    "quest_id": 12,
+                    "type": "checkbox",
+                    "question_text": "Er/sie sagt nichts mehr, verstummt"
+                },
+                {
+                    "quest_id": 13,
+                    "type": "checkbox",
+                    "question_text": "Er/sie rennt einfach weg, raus"
+                },
+                {
+                    "quest_id": 14,
+                    "type": "checkbox",
+                    "question_text": "Er/sie ist sehr betroffen"
+                },
+                {
+                    "quest_id": 15,
+                    "type": "checkbox",
+                    "question_text": "Er/sie bekommt das gleiche Gefühl wie ich"
+                },
+                {
+                    "quest_id": 16,
+                    "type": "checkbox",
+                    "question_text": "Er/sie zeigt Verständnis für mich und mein Gefühl"
+                },
+                {
+                    "quest_id": 17,
+                    "type": "checkbox",
+                    "question_text": "Er/sie tut/sagt das, was ich in diesem Moment brauche/will"
+                }
+            ]
+        }
+    ]
+}

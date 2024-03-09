@@ -1,0 +1,255 @@
+{
+    "title": "Ressourcen", 
+    "intro_text":  "Jede/r von uns hat bestimmte Fähigkeiten, Eigenschaften Verhaltensweisen, Stärken - sogenannte Ressourcen - auf die sie oder er mehr oder weniger bewusst bei der Bewältigung von Aufgaben zurückgreift. Im folgenden Fragebogen geht es uns darum, deine Stärken kennenzulernen. \n Hinweise zur Bearbeitung des Fragebogens: \n Auf den nächsten Seiten findest du Aussagen, die deine Ressourcen betreffen und sich auf drei verschiedene Bereiche deines Lebens beziehen. Überlege dir bei jeder Aussage, in welchem Maße die Aussage in dem jeweiligen Bereich auf dich zutrifft. Zur Beurteilung stehen dir 6 Antwortmöglichkeiten zur Verfügung. \n 0 - trifft gar nicht zu \n 1 - trifft ganz selten zu \n 2 - trifft manchmal zu \n 3 - trifft häufig zu \n 4 - trifft meistens zu \n 5 - trifft völlig zu \n Es gibt in diesem Fragebogen keine richtigen oder falschen Antworten. Es geht vielmehr darum zu erfassen, was du in verschiedenen Situationen tust. Bitte überlege bei der Beurteilung nicht lange. Entscheide dich möglichst spontan für eine der Antwortmöglichkeiten. Gehe der Reihe nach vor und lasse bitte keine Aussage aus.",
+    "sections": [
+        {
+            "sec_id": 1,
+            "sec_title": "Ressourcen bei der allgemeinen Lebensbewältigung",
+            "sec_intro": "Im alltäglichen Leben werden wir mit den verschiedensten Aufgaben und Anforderungen konfrontiert. Wir müssen unseren Alltag organisieren, dafür sorgen, dass wir unseren Tag geregelt bekommen und uns in unserer Haut einigermaßen gut fühlen. Wie wir diese Aufgaben bewältigen, ist bei jedem Menschen verschieden. Wir möchten dich jetzt bitten, dich in Gedanken in eine Zeit zurückzuversetzen, als es dir gut ging, du sich wohl gefühlt hast und Vieles in deinem Leben so verlaufen ist, wie du es dir gewünscht hast. Im Folgenden werden einige Aussagen genannt, wie Menschen mit dem alltäglichen Leben umgehen können. Im Bewusstsein 'es geht mir gut' stellen Sie sich jetzt bitte Ihren Alltag vor.",
+            "prefix": "Zu einer Zeit, als es mir gut ging, habe ich den Alltag gemeistert, indem ....",
+            "num_quest": 12,
+            "questions": [
+                { 
+                    "quest_id": 1,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mir bei anderen Rat geholt habe."
+                },
+                {  
+                    "quest_id": 2,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich Aufgaben tatkräftig angepackt habe."
+                },
+                { 
+                    "quest_id": 3,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mir Zeit für schöne Dinge (Hobbies, Interessen...) genommen habe, um neue Kraft zu schöpfen."
+                },
+                {
+                    "quest_id": 4,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mit anderen über meine Sorgen und Nöte gesprochen habe."
+                },
+                {
+                    "quest_id": 5,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mich nicht unterkriegen ließ."
+                },
+                {
+                    "quest_id": 6,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mich zeitweise durch etwas Schönes von meinen Pflichten abgelenkt habe (Kino, Essen gehen, bummeln...)."
+                },
+                {
+                    "quest_id": 7,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich Menschen an meiner Seite hatt (Partner, Freunde, Verwandte...), die mich unterstützt haben."
+                },
+                {
+                    "quest_id": 8,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": " ... ich mir einen Überblick verschafft und das Wichtigste zuerst erledigt habe."
+                },
+                {
+                    "quest_id": 9,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mir Freizeitaktivitäten gesucht habe, die mir Spaß gemacht haben (Freunde, Sport, Hobbies...)."
+                },
+                {
+                    "quest_id": 10,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich es mir wert war, für mich und meine Zukunft zu kämpfen."
+                },
+                {
+                    "quest_id": 11,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich zwischendurch Erholungspausen eingelegt habe (Mittagsschlaf, Spaziergang, Lesen...)."
+                },
+                {
+                    "quest_id": 12,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich manche Dinge mit Humor genommen habe."
+                }
+            ]
+        },
+        {
+            "sec_id": 2,
+            "sec_title": "Ressourcen bei der Bewältigung schwieriger Situationen",
+            "sec_intro": "Im nächsten Schritt möchten wir dich bitten, dich an eher schwierige Zeiten in deinem Leben zu erinnern. Jeder Mensch erlebt solche Zeiten. Erinnere dich jetzt bitte an eine Situation, die für dich schwierig war, die du jedoch erfolgreich überwunden hast, d.h. eine Situation, über die du heute sagen würdest: 'Das habe ich ganz gut gemeistert', oder 'da bin ich ganz zufrieden mit mir'. Im Folgenden sind einige Möglichkeiten aufgeführt, was Menschen in schwierigen Situationen tun können. Sehe dir bitte diese Aussagen an und schätze ein in wie weit du dies in erfolgreich gemeisterten schwierigen Situationen genutzt hast.",
+            "prefix": "Ich habe früher eine schwierige Situation erfolgreich bewältigt, indem ....",
+            "num_quest": 12,
+            "questions": [
+                { 
+                    "quest_id": 1,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich Aufgaben tatkräftig angepackt habe."
+                },
+                {  
+                    "quest_id": 2,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": " ... ich zwischendurch Erholungspausen eingelegt habe (Mittagsschlaf, Spaziergang, Lesen...)."
+                },
+                { 
+                    "quest_id": 3,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich es mir wert war, für mich und meine Zukunft zu kämpfen."
+                },
+                {
+                    "quest_id": 4,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich Menschen an meiner Seite hatte(Partner, Freunde, Verwandte...), die mich unterstützt haben."
+                },
+                {
+                    "quest_id": 5,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mich zeitweise durch etwas Schönes von meinen Pflichten abgelenkt habe (Kino, Essen gehen, bummeln...)."
+                },
+                {
+                    "quest_id": 6,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mich nicht unterkriegen ließ."
+                },
+                {
+                    "quest_id": 7,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": " ... ich mit anderen über meine Sorgen und Nöte gesprochen habe."
+                },
+                {
+                    "quest_id": 8,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": " ... ich mir Zeit für schöne Dinge (Hobbies, Interessen...) genommen habe, um neue Kraft zu schöpfen."
+                },
+                {
+                    "quest_id": 9,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich manche Dinge mit Humor genommen habe."
+                },
+                {
+                    "quest_id": 10,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mir bei anderen Rat geholt habe."
+                },
+                {
+                    "quest_id": 11,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mir Freizeitaktivitäten gesucht habe, die mir Spaß gemacht haben (Freunde, Sport, Hobbies...)."
+                },
+                {
+                    "quest_id": 12,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mir einen Überblick verschafft und das Wichtigste zuerst erledigt habe."
+                }
+            ]
+        },
+        {
+            "sec_id": 3,
+            "sec_title": "Ressourcen im Zusammenhang mit aktuellen Problemen",
+            "sec_intro": "Im Moment hast du vielleicht auch Schwierigkeiten die du bearbeiten willst (evtl. mit Unterstützung durch eine Therapie). Auch das ist eine besondere Situation, mit der jeder Mensch unterschiedlich umgeht. Das heißt, dass Menschen auch hier Ressourcen über die sie verfügen, unter Umständen nutzen. Dies kann den Umgang mit aktuellen Problemen (und auch eine Therapie) beeinflussen. Im Folgenden sind verschiedene Aussagen aufgeführt. Beurteile bitte, wie sehr diese Aussagen auf dich bei deiner aktuellen Problematik (und ggf. der Behandlungssituation) zutreffen.",
+            "prefix": "Mit meinen aktuellen Schwierigkeiten und Problemen gehe ich um, indem ....",
+            "num_quest": 12,
+            "questions": [
+                { 
+                    "quest_id": 1,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mich nicht unterkriegen lasse."
+                },
+                {  
+                    "quest_id": 2,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mir Zeit für schöne Dinge (Hobbies, Interessen...) nehme, um neue Kraft zu schöpfen."
+                },
+                { 
+                    "quest_id": 3,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mir bei anderen Rat hole."
+                },
+                {
+                    "quest_id": 4,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich Aufgaben tatkräftig anpacke."
+                },
+                {
+                    "quest_id": 5,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich zwischendurch Erholungspausen einlege (Mittagsschlaf, Spaziergang, Lesen...)."
+                },
+                {
+                    "quest_id": 6,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mich nicht unterkriegen ließ."
+                },
+                {
+                    "quest_id": 7,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": " ... ich mit anderen über meine Sorgen und Nöte gesprochen habe."
+                },
+                {
+                    "quest_id": 8,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": " ... ich mir Zeit für schöne Dinge (Hobbies, Interessen...) genommen habe, um neue Kraft zu schöpfen."
+                },
+                {
+                    "quest_id": 9,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich manche Dinge mit Humor genommen habe."
+                },
+                {
+                    "quest_id": 10,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mir bei anderen Rat geholt habe."
+                },
+                {
+                    "quest_id": 11,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mir Freizeitaktivitäten gesucht habe, die mir Spaß gemacht haben (Freunde, Sport, Hobbies...)."
+                },
+                {
+                    "quest_id": 12,
+                    "type": "likert_scale",
+                    "input_text": ["0", "1", "2", "3", "4", "5"],
+                    "question_text": "... ich mir einen Überblick verschafft und das Wichtigste zuerst erledigt habe."
+                },
+                {
+                    "quest_id": 13,
+                    "type": "single_choice",
+                    "input_text": ["ja", "nein"],
+                    "question_text": "Haben Sie den Eindruck, dass Sie durch die Befragung an Fähigkeiten, Stärken, Möglichkeiten etc. erinnert worden sind, die Sie schon fast vergessen hatten?"
+                }
+            ]
+        }
+    ]
+}

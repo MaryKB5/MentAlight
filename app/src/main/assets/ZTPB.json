@@ -1,0 +1,247 @@
+{
+    "title": "Anfangsscreening", 
+    "intro_text":  "Auf den folgenden Seiten findest du eine Reihe von Aussagen. Bitte beurteile, in welchem Ausmaß diese Aussagen auf dich zutreffen. Bitte kreuze die Antwort an, die am ehesten deiner Einschätzung entspricht. Deine Antworten kannst du jeweils von „Trifft nicht zu“ bis „Trifft zu“ abstufen. Es gibt kein richtig oder falsch! Am Ende des Anfangsscreenings wirst du zu Fragebögen weitergeleitet, die aufgrund deiner Antworten für dich relevant sein könnten.",
+    "num_quest": 40,
+    "questions": [
+        {
+            "quest_id": 1,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kenne meine Ressourcen."
+        },
+        {
+            "quest_id": 2,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich weiß, welche Menschen in meinem Leben mir Kraft geben."
+        },
+        {
+            "quest_id": 3,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kenne meine Kompetenzen, die mir dabei helfen, schwierige Situationen zu überwinden."
+        },
+        {
+            "quest_id": 4,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kenne meine Therapieziele."
+        },
+        {
+            "quest_id": 5,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kann meine körperlichen Grundbedürfnisse wahrnehmen."
+        },
+        {
+            "quest_id": 6,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kenne die Auswirkungen der Stressreaktion in meinem Körper."
+        },
+        {
+            "quest_id": 7,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kann Entspannungsübungen selbst durchführen."
+        },
+        {
+            "quest_id": 8,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich weiß, was ich machen kann, damit ich gut schlafe."
+        },
+        {
+            "quest_id": 9,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kann meine unterschiedlichen Gefühle benennen."
+        },
+        {
+            "quest_id": 10,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kenne die Funktion von meinen Emotionen."
+        },
+        {
+            "quest_id": 11,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich weiß, wann meine Emotionen hilfreich sind und wann nicht."
+        },
+        {
+            "quest_id": 12,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich weiß, welche Strategien ich nutzen kann, um meine Gefühle zu regulieren."
+        },
+        {
+            "quest_id": 13,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich verstehe, wie eine typische Problemsituation abläuft, in der ich meine Symptome erlebe."
+        },
+        {
+            "quest_id": 14,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich erkenne die kurzfristigen Konsequenzen nach meinem Problemverhalten"
+        },
+        {
+            "quest_id": 15,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich erkenne die langfrsitigen Konsequenzen nach meinem Problemverhalten"
+        },
+        {
+            "quest_id": 16,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich verstehe, welchen Einfluss mein Verhalten auf meine Symptome hat."
+        },
+        {
+            "quest_id": 17,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kenne meine Werte."
+        },
+        {
+            "quest_id": 18,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich weiß, welche neuen Verhaltensweisen für mich sinnvoll sind."
+        },
+        {
+            "quest_id": 19,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich bin bereit neue Verhaltensweisen auszuprobieren."
+        },
+        {
+            "quest_id": 20,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kann mich für neue Verhaltensweisen selbst belohnen."
+        },
+        {
+            "quest_id": 21,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kann zwischen einer Situation und ihrer Bewertung unterscheiden."
+        },
+        {
+            "quest_id": 22,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich erkenne meine eigenen automatischen Gedanken."
+        },
+        {
+            "quest_id": 23,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kenne Techniken, um meine Gedanken zu hinterfragen."
+        },
+        {
+            "quest_id": 24,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kann alternative, hilfreiche Gedanken entwickeln."
+        },
+        {
+            "quest_id": 25,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kann meine Grundüberzeugungen formulieren."
+        },
+        {
+            "quest_id": 26,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kann meine Grundüberzeugungen mit meiner Lebensgeschichte in Verbindung bringen."
+        },
+        {
+            "quest_id": 27,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich habe Techniken gelernt, um meine Grundüberzeugungen zu hinterfragen."
+        },
+        {
+            "quest_id": 28,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kann alternative Grundüberzeugungen formulieren."
+        },
+        {
+            "quest_id": 29,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kenne meine psychischen Grundbedürfnisse."
+        },
+        {
+            "quest_id": 30,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich weiß, welche Grundbedürfnisse in meiner Lebensgeschichte frustriert oder erfüllt wurden."
+        },
+        {
+            "quest_id": 31,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich weiß, wie ich Grundbedürfnisse, die in der Vergangenheit nicht erfüllt wurden, im Hier und Jetzt versorgen kann."
+        },
+        {
+            "quest_id": 32,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich weiß, welche psychischen Grundbedürfnisse jetzt besonders wichtig für mich sind."
+        },
+        {
+            "quest_id": 33,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kann meine früheren Beziehungserfahrungen reflektieren."
+        },
+        {
+            "quest_id": 34,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich weiß, wie früher Beziehungserfahrungen meine gegenwärtigen Beziehungen beeinflussen."
+        },
+        {
+            "quest_id": 35,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich weiß, welche guten Beziehungen ich in meinem Leben habe."
+        },
+        {
+            "quest_id": 36,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich erkenne, wie mein Verhalten Beziehungen beeinflusst."
+        },
+        {
+            "quest_id": 37,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich weiß, was Selbstwert bedeutet."
+        },
+        {
+            "quest_id": 38,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich weiß, warum ich wertvoll bin."
+        },
+        {
+            "quest_id": 39,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kann auch Dinge an mir akzeptieren, die nicht perfekt sind."
+        },
+        {
+            "quest_id": 40,
+            "type": "likert_scale",
+            "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
+            "question_text": "Ich kann eine wohlwollende Haltung mit selbst gegenüber einnehmen."
+        }
+    ]
+}

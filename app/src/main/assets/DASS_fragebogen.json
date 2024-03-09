@@ -1,0 +1,134 @@
+{
+    "title": "Depressions-Angst-Stress-Skalen", 
+    "subtitle": "Fragen zu Ihrem Befinden",
+    "intro_text":  "Bitte lese jede Aussage und kreuze die Zahl 0, 1, 2 oder 3 an, die angeben soll, wie sehr die Aussage während der letzten Woche auf dich zutraf. Es gibt keine richtigen oder falschen Antworten. Versuche, dich spontan für eine Antwort zu entscheiden. \n 0 Traf gar nicht auf mich zu \n 1 Traf bis zu einem gewissen Grad auf mich zu oder manchmal \n 2 Traf in beträchtlichem Maße auf mich zu oder ziemlich oft \n 3 Traf sehr stark auf mich zu oder die meiste Zeit",
+    "num_quest": 21,
+    "questions": [
+        {
+            "quest_id": 1,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich fand es schwer, mich zu beruhigen."
+        },
+        {
+            "quest_id": 2,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich spürte, dass mein Mund trocken war."
+        },
+        {
+            "quest_id": 3,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich konnte überhaupt keine positiven Gefühle mehr erleben."
+        },
+        {
+            "quest_id": 4,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich hatte Atemprobleme (z.B. übermäßig schnelles Atmen, Atemlosigkeit ohne körperliche Anstrengung)."
+        },
+        {
+            "quest_id": 5,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Es fiel mir schwer, mich dazu aufzuraffen, Dinge zu erledigen."
+        },
+        {
+            "quest_id": 6,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich tendierte dazu, auf Situationen überzureagieren."
+        },
+        {
+            "quest_id": 7,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich zitterte (z.B. an den Händen)."
+        },
+        {
+            "quest_id": 8,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich fand alles anstrengend."
+        },
+        {
+            "quest_id": 9,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich machte mir Sorgen über Situationen, in denen ich in Panik geraten und mich lächerlich machen könnte."
+        },
+        {
+            "quest_id": 10,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich hatte das Gefühl, dass ich mich auf nichts mehr freuen konnte."
+        },
+        {
+            "quest_id": 11,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich bemerkte, dass ich mich schnell aufregte."
+        },
+        {
+            "quest_id": 12,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich fand es schwierig, mich zu entspannen."
+        },
+        {
+            "quest_id": 13,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich fühlte mich niedergeschlagen und traurig."
+        },
+        {
+            "quest_id": 14,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich reagierte ungehalten auf alles, was mich davon abhielt, meine momentane Tätigkeit fortzuführen."
+        },
+        {
+            "quest_id": 15,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich fühlte mich einer Panik nahe."
+        },
+        {
+            "quest_id": 16,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich war nicht in der Lage, mich für irgendetwas zu begeistern."
+        },
+        {
+            "quest_id": 17,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich fühlte mich als Person nicht viel wert."
+        },
+        {
+            "quest_id": 18,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich fand mich ziemlich empfindlich."
+        },
+        {
+            "quest_id": 19,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich habe meinen Herzschlag gespürt, ohne dass ich mich körperlich angestrengt hatte (z.B. Gefühl von Herzrasen oder Herzstolpern)."
+        },
+        {
+            "quest_id": 20,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich fühlte mich grundlos ängstlich."
+        },
+        {
+            "quest_id": 21,
+            "type": "likert_scale",
+            "input_text": ["0", "1", "2", "3"],
+            "question_text": "Ich empfand das Leben als sinnlos."
+        }
+    ]
+}

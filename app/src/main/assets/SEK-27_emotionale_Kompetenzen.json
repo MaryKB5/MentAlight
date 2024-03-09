@@ -1,0 +1,171 @@
+{
+    "title": "Fragebogen zur standardisierten Selbsteinschätzung emotionaler Kompetenzen", 
+    "subtitle": "SEK-27",
+    "intro_text":  "Liebe(r) Teilnehmer(in,) im Folgenden findest du eine Reihe von Aussagen zu deinem Umgang mit problematischen Gefühlen in der letzten Woche. Bitte beantworte die Fragen spontan, indem du die Antwort aussuchst und ankreuzt, die dir am passendsten erscheint.",
+    "prefix": "In der letzten Woche...",
+    "num_quest": 27,
+    "questions": [
+        {
+            "quest_id": 1,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "achtete ich auf meine Gefühle"
+        },
+        {
+            "quest_id": 2,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "konnte ich positivere Gefühle gezielt herbeiführen"
+        },
+        {
+            "quest_id": 3,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "verstand ich meine emotionalen Reaktionen"
+        },
+        {
+            "quest_id": 4,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "fühlte ich mich auch intensiven, negativen Gefühlen gewachsen"
+        },
+        {
+            "quest_id": 5,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "konnte ich auch negative Gefühle annehmen"
+        },
+        {
+            "quest_id": 6,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "hätte ich klar benennen können, wie ich mich gerade fühle"
+        },
+        {
+            "quest_id": 7,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "hatte ich eine gute körperliche Wahrnehmung meiner Gefühle"
+        },
+        {
+            "quest_id": 8,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "machte ich, was ich mir vorgenommen hatte, auch wenn ich mich dabei unwohl oder ängstlich fühlte"
+        },
+        {
+            "quest_id": 9,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "versuchte ich, mir in belastenden Situationen selber Mut zu machen"
+        },
+        {
+            "quest_id": 10,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "konnte ich meine negativen Gefühle beeinflussen"
+        },
+        {
+            "quest_id": 11,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "wusste ich, was meine Gefühle bedeuten"
+        },
+        {
+            "quest_id": 12,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "schenkte ich meinen Gefühlen Aufmerksamkeit"
+        },
+        {
+            "quest_id": 13,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "war mir klar, was ich gerade fühlte"
+        },
+        {
+            "quest_id": 14,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "merkte ich gut, wenn mein Körper auf emotional bedeutende Situationen besonders reagierte"
+        },
+        {
+            "quest_id": 15,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "versuchte ich mich in belastenden Situationen selber aufzumuntern"
+        },
+        {
+            "quest_id": 16,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "konnte ich trotz negativer Gefühle das machen, was ich mir vorgenommen hatte"
+        },
+        {
+            "quest_id": 17,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "konnte ich zu meinen Gefühlen stehen"
+        },
+        {
+            "quest_id": 18,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "war ich mir sicher, auch intensive, unangenehme Gefühle aushalten zu können"
+        },
+        {
+            "quest_id": 19,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "setzte ich mich mit meinen Gefühlen auseinander"
+        },
+        {
+            "quest_id": 20,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "war mir bewusst, warum ich mich so fühle, wie ich mich fühle"
+        },
+        {
+            "quest_id": 21,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "war mir klar, dass ich meine Gefühle beeinflussen kann"
+        },
+        {
+            "quest_id": 22,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "konnte ich wichtige Ziele verfolgen, auch wenn ich mich dabei manchmal unwohl oder unsicher fühlte"
+        },
+        {
+            "quest_id": 23,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "akzeptierte ich meine Gefühle"
+        },
+        {
+            "quest_id": 24,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "waren meine körperlichen Reaktionen ein gutes Signal dafür, wie ich mich fühlte"
+        },
+        {
+            "quest_id": 25,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "wusste ich gut, wie es mir gerade geht"
+        },
+        {
+            "quest_id": 26,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "fühlte ich mich stark genug, auch belastende Gefühle aushalten zu können"
+        },
+        {
+            "quest_id": 27,
+            "type": "likert_scale",
+            "input_text": ["überhaupt nicht", "selten", "manchmal", "oft", "(fast) immer"],
+            "question_text": "stand ich mir in belastenden Situationen selbst zur Seite"
+        }
+    ]
+}
