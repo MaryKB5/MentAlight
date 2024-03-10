@@ -11,20 +11,24 @@ public class Questionnaire {
     private String intro;
     private String prefix;
 
-    public Questionnaire(String title, String intro, String subtitle, String prefix, ArrayList<Question> questions) {
+    private int numQuest = 0;
+
+    public Questionnaire(String title, String intro, String subtitle, String prefix, int numQuest, ArrayList<Question> questions) {
         this.questions = questions;
         this.title = title;
         this.subtitle = subtitle;
         this.prefix = prefix;
         this.intro = intro;
+        this.numQuest = numQuest;
     }
 
-    public Questionnaire(String title, String intro, String subtitle, String prefix, Section[] sections) {
+    public Questionnaire(String title, String intro, String subtitle, String prefix, int numQuest, Section[] sections) {
             this.sections = sections;
             this.title = title;
             this.subtitle = subtitle;
             this.prefix = prefix;
             this.intro = intro;
+            this.numQuest = numQuest;
     }
 
     public String getTitle() {
@@ -45,5 +49,9 @@ public class Questionnaire {
 
     public ArrayList<Question> getQuestions() {
         return questions;
+    }
+
+    public int getNumQuest() {
+        return numQuest;
     }
 }

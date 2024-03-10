@@ -13,6 +13,7 @@ public class QuestionnaireManager {
         String title = jsonObject.getString("title");
         String intro = jsonObject.getString("intro_text");
         String subtitle, prefix;
+        int numQuest;
         if(jsonObject.has("subtitle")){
             subtitle = jsonObject.getString("subtitle");
         } else {
@@ -23,13 +24,18 @@ public class QuestionnaireManager {
         } else {
             prefix = "";
         }
+        if(jsonObject.has("num_quest")){
+            numQuest = jsonObject.getInt("num_quest");
+        } else {
+            numQuest = 0;
+        }
 
         if(jsonObject.has("sections")){
-            ArrayList<Question> test = new ArrayList<Question>();
-            questionnaire = new Questionnaire(title, intro, subtitle, prefix, test);
+            ArrayList<Question> test = new ArrayList<>();
+            questionnaire = new Questionnaire(title, intro, subtitle, prefix, numQuest , test);
         } else {
             ArrayList<Question> questionList = getQuestionList(jsonObject);
-            questionnaire = new Questionnaire(title, intro, subtitle, prefix, questionList);
+            questionnaire = new Questionnaire(title, intro, subtitle, prefix, numQuest, questionList);
         }
 
         return questionnaire;

@@ -7,13 +7,13 @@
     tools:context=".MainActivity"
     android:background="@color/beige">
 
+
     <TextView
         android:id="@+id/progress_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="1/10"
         android:textAlignment="center"
-        android:textSize="12sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -57,6 +57,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/continue_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/continue_button"
@@ -70,5 +71,10 @@
         android:layout_marginEnd="15dp"
         android:backgroundTint="@color/colorPrimary"
         />
+
+    <FrameLayout
+        android:id="@+id/intro_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
