@@ -91,7 +91,7 @@
             "quest_id": 15,
             "type": "likert_scale",
             "input_text": ["Trifft nicht zu", "Trifft eher nicht zu", "Weder noch", "Trifft eher zu", "Trifft zu"],
-            "question_text": "Ich erkenne die langfrsitigen Konsequenzen nach meinem Problemverhalten"
+            "question_text": "Ich erkenne die langfristigen Konsequenzen nach meinem Problemverhalten"
         },
         {
             "quest_id": 16,

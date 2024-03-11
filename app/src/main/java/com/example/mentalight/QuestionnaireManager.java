@@ -1,5 +1,7 @@
 package com.example.mentalight;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,5 +64,13 @@ public class QuestionnaireManager {
             questions.add(question);
         }
         return questions;
+    }
+
+    public ArrayList<Question> loadQuestionsFromQuestionnaire(Questionnaire questionnaire){
+        ArrayList<Question> list = questionnaire.getQuestions();
+        for(Question question: list){
+            Log.d("ehm", question.getQuestionText());
+        }
+        return list;
     }
 }
