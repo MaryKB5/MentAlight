@@ -22,6 +22,8 @@ public class LikertFragment extends Fragment {
     private static final String INPUT = "input_texts";
 
     private String[] inputTexts;
+    private RadioGroup radioGroup;
+    private View view;
 
     public LikertFragment() {
         // Required empty public constructor
@@ -47,10 +49,10 @@ public class LikertFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.likert_scale, container, false);
+        view = inflater.inflate(R.layout.likert_scale, container, false);
         int j = 1;
 
-        RadioGroup radioGroup = view.findViewById(R.id.radioGroup);
+        radioGroup = view.findViewById(R.id.radioGroup);
         Log.d("isterda", "ja");
         if (view != null){
             for (int i = 0; i < radioGroup.getChildCount(); i++) {
@@ -62,5 +64,28 @@ public class LikertFragment extends Fragment {
             }
         }
         return view;
+    }
+
+    public String getCheckedRadioButtonText() {
+        int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
+        if (selectedRadioButtonId != -1) {
+            Log.d("jajaja","ja");
+            RadioButton selectedRadioButton = view.findViewById(selectedRadioButtonId);
+            String selectedRadioButtonText = selectedRadioButton.getText().toString();
+
+            return selectedRadioButtonText;
+        } else {
+            return "nichts ausgewählt!";
+        }
+    }
+
+    public boolean oneRadioButtonChecked() {
+        int checkedRadioButtonId = radioGroup.getCheckedRadioButtonId();
+
+        if (checkedRadioButtonId != -1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

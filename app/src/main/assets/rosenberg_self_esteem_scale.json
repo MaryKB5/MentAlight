@@ -2,6 +2,7 @@
     "title": "Rosenberg Self-Esteem-Scale", 
     "subtitle": "RSES",
     "intro_text": "Bitte kreuze die Zahl an, deren Aussage für dich am stimmigsten ist. \n 0 = trifft gar nicht zu, \n 3 = trifft voll und ganz zu",
+    "num_quest": 10,
     "questions": [
         {
             "quest_id": 1,

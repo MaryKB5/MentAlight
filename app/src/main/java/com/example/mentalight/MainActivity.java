@@ -6,6 +6,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,15 +23,17 @@ import com.example.mentalight.fragments.FreeTextFragment;
 import com.example.mentalight.fragments.IntroFragment;
 import com.example.mentalight.fragments.LikertFragment;
 import com.example.mentalight.fragments.SingleChoiceFragment;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements OnStartButtonClickListener {
     private Questionnaire questionnaire;
     private final QuestionnaireManager manager = new QuestionnaireManager();
-    private int currentQuestion = 0;
+    private int currentQuestion = 1;
     private int numberOfQuestions;
 
     private TextView questionText;
@@ -41,6 +45,13 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
 
     private ArrayList<Fragment> fragments;
     private ArrayList<Question> questions;
+    private Questionnaire questionnaireZTPB;
+    private boolean lastQuestionReached;
+    private LikertFragment currentFragmentZTPB = new LikertFragment();
+    private boolean screeningFinished = true;
+
+
+    private HashMap<String, String> prefs = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,25 +63,18 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         backButton = findViewById(R.id.back_button);
 
 
-        if (shouldDisplayScreening()) {
+        if (!screeningFinished) {
             displayScreening();
         } else {
             //@TODO switch case, der ZTPB auswertet und entsprechende Fragebögen übergibt als Liste
-            // Fragebogen wurde bereits ausgefüllt, zeige andere Ansicht oder führe andere Logik aus
+            initFurtherQuestionnaires();
         }
 
 
     }
 
-    private boolean shouldDisplayScreening() {
-        // Hier überprüfen Sie den Status des Fragebogens, um festzustellen, ob er angezeigt werden soll
-        // Zum Beispiel überprüfen Sie eine Variable in SharedPreferences oder den Status in einer Datenbank
-        // Rückgabe true, wenn der Fragebogen noch nicht ausgefüllt wurde, sonst false
-        return true;
-    }
-
     private void displayScreening() {
-        Questionnaire questionnaireZTPB = getQuestionnaireFromFile("ZTPB.json");
+        questionnaireZTPB = getQuestionnaireFromFile("ZTPB.json");
         questions = questionnaireZTPB.getQuestions();
         for(Question question: questions){
             Log.d("Frage", question.getQuestionText());
@@ -165,16 +169,31 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     }
 
     private void continueButtonClicked() {
-        currentQuestion++;
-        questionText.setText(questions.get(currentQuestion).getQuestionText());
-        //for (Fragment fragment : fragments) {
-            //Log.d("neueListe", "Fragment: " + fragment.getClass().getSimpleName());
-        //}
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragments.get(currentQuestion))
-                .commit();
 
-        updateProgressBar();
+        if(questionnaire == questionnaireZTPB){
+            currentFragmentZTPB = (LikertFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+            if (lastQuestionReached ) {
+                safeInputs();
+                screeningFinished = true;
+            }
+        }
+        if(!currentFragmentZTPB.oneRadioButtonChecked()){
+            Toast.makeText(this, "Bitte eine Antwort auswählen", Toast.LENGTH_SHORT).show();
+        } else{
+            questionText.setText(questions.get(currentQuestion).getQuestionText());
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, fragments.get(currentQuestion))
+                    .commit();
+            if(currentQuestion == numberOfQuestions-1){
+                continueButton.setText("Abschließen");
+                lastQuestionReached = true;
+            }
+            currentQuestion++;
+            updateProgressBar();
+        }
+
+
+        //@TODO questionnaire Variable muss dann unbedingt überschrieben werden für die anderen Fragebögen
     }
 
     private void backButtonClicked() {
@@ -190,6 +209,33 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         }
     }
 
+    private void safeInputs(){
+        for(Fragment fragment: fragments){
+
+            LikertFragment likert = (LikertFragment) fragment;
+            SharedPreferences preferences = getSharedPreferences("prefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+
+            String input = likert.getCheckedRadioButtonText();
+            String key = "question_" + currentQuestion;
+
+            editor.putString(key, input);
+            editor.apply();
+
+            String savedResult = preferences.getString(key, "default_value");
+
+            prefs.put(key, savedResult);
+        }
+    }
+
+    private void initFurtherQuestionnaires(){
+        Questionnaire dassQuestionnaire = getQuestionnaireFromFile("DASS_fragebogen.json");
+        //Questionnaire emotionsanalyse = getQuestionnaireFromFile("Emotionsanalyse.json");
+        Questionnaire rosenbergSelfEsteem = getQuestionnaireFromFile("rosenberg_self_esteem_scale.json");
+        Questionnaire sek27 = getQuestionnaireFromFile("SEK-27_emotionale_Kompetenzen.json");
+        //Questionnaire wirf = getQuestionnaireFromFile("WIRF_ressourcen.json");
+        Toast.makeText(this, sek27.getTitle(), Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     public void onStartButtonClicked() {
