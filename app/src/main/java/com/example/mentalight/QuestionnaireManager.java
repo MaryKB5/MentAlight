@@ -148,4 +148,9 @@ public class QuestionnaireManager {
         ArrayList<Question> list = questionnaire.getQuestions();
         return list;
     }
+
+    public ArrayList<Question> loadQuestionsFromSection(Section section){
+        ArrayList<Question> list = section.getQuestions();
+        return list;
+    }
 }

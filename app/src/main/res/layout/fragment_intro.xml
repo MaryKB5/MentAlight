@@ -23,10 +23,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/intro"
             android:textSize="23sp"
-
             android:lineSpacingMultiplier="1.5"
             android:padding="10dp"
-            android:scrollbars="vertical">
+            android:scrollbars="vertical"
+            android:maxLines="15">
         </TextView>
     </ScrollView>
 

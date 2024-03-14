@@ -35,6 +35,10 @@ public class Section {
         this.numQuest = numQuest;
     }
 
+    public ArrayList<Question> getQuestions() {
+        return questions;
+    }
+
     public int getID() {
         return id;
     }
@@ -62,4 +66,5 @@ public class Section {
     public Subsection[] getSubsections() {
         return subsections;
     }
+
 }

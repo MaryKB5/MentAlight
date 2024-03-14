@@ -72,7 +72,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question_prefix"
-        android:text="Ich kenne meine Ressourcen"
+        android:text=""
         android:textColor="@color/dark_blue"
         android:layout_marginStart="5dp"
         android:textSize="30sp"
