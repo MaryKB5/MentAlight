@@ -54,4 +54,8 @@ public class Questionnaire {
     public int getNumQuest() {
         return numQuest;
     }
+
+    public Section[] getSections() {
+        return sections;
+    }
 }

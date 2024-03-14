@@ -1,6 +1,7 @@
 package com.example.mentalight;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,8 +34,9 @@ public class QuestionnaireManager {
         }
 
         if(jsonObject.has("sections")){
-            ArrayList<Question> test = new ArrayList<>();
-            questionnaire = new Questionnaire(title, intro, subtitle, prefix, numQuest , test);
+            Log.d("isterhier", "ja");
+            Section[] sectionArray = getSections(jsonObject);
+            questionnaire = new Questionnaire(title, intro, subtitle, prefix, numQuest , sectionArray);
         } else {
             ArrayList<Question> questionList = getQuestionList(jsonObject);
             questionnaire = new Questionnaire(title, intro, subtitle, prefix, numQuest, questionList);
@@ -66,11 +68,84 @@ public class QuestionnaireManager {
         return questions;
     }
 
+    private Section[] getSections(JSONObject object) throws JSONException {
+        JSONArray sectionsArray = object.getJSONArray("sections");
+        Section[] sections = new Section[sectionsArray.length()];
+        for (int i = 0; i < sectionsArray.length(); i++) {
+            JSONObject sectionObject = sectionsArray.getJSONObject(i);
+            String title = sectionObject.getString("sec_title");
+            String subtitle, prefix, intro;
+            int numQuest;
+            if(sectionObject.has("sec_intro")){
+                intro = sectionObject.getString("sec_intro");
+            } else {
+                intro="";
+            }
+            if(sectionObject.has("sub_title")){
+                subtitle = sectionObject.getString("sub_title");
+            } else {
+                subtitle = "";
+            }
+            if(sectionObject.has("prefix")){
+                prefix = sectionObject.getString("prefix");
+            } else {
+                prefix = "";
+            }
+            if(sectionObject.has("num_quest")){
+                numQuest = sectionObject.getInt("num_quest");
+            } else {
+                numQuest = 0;
+            }
+            if(sectionObject.has("subsections")){
+                Subsection[] subsectionsArray = getSubsections(sectionObject);
+                Section section = new Section(title, subtitle, intro, prefix, numQuest, subsectionsArray);
+                sections[i] = section;
+            } else {
+                ArrayList<Question> questions = getQuestionList(sectionObject);
+                Section section = new Section(title, subtitle, intro, prefix, numQuest, questions);
+                sections[i] = section;
+            }
+        }
+        return sections;
+    }
+
+    private Subsection[] getSubsections(JSONObject object) throws JSONException {
+        JSONArray subsectionsArray = object.getJSONArray("subsections");
+        Subsection[] subsections = new Subsection[subsectionsArray.length()];
+        for (int i = 0; i < subsectionsArray.length(); i++) {
+            JSONObject subsectionObject = subsectionsArray.getJSONObject(i);
+            String title = subsectionObject.getString("sub_title");
+            String subtitle, prefix, intro;
+            int numQuest;
+            if(subsectionObject.has("sub_intro")){
+                intro = subsectionObject.getString("sub_intro");
+            } else {
+                intro="";
+            }
+            if(subsectionObject.has("sub_subtitle")){
+                subtitle = subsectionObject.getString("sub_subtitle");
+            } else {
+                subtitle = "";
+            }
+            if(subsectionObject.has("prefix")){
+                prefix = subsectionObject.getString("prefix");
+            } else {
+                prefix = "";
+            }
+            if(subsectionObject.has("num_quest")){
+                numQuest = subsectionObject.getInt("num_quest");
+            } else {
+                numQuest = 0;
+            }
+            ArrayList<Question> questions = getQuestionList(subsectionObject);
+            Subsection subsection = new Subsection(title, subtitle, intro, prefix, numQuest, questions);
+            subsections[i] = subsection;
+        }
+        return subsections;
+    }
+
     public ArrayList<Question> loadQuestionsFromQuestionnaire(Questionnaire questionnaire){
         ArrayList<Question> list = questionnaire.getQuestions();
-        for(Question question: list){
-            Log.d("ehm", question.getQuestionText());
-        }
         return list;
     }
 }

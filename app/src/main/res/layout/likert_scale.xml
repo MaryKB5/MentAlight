@@ -16,46 +16,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="5dp">
 
-        <RadioButton
-            android:id="@+id/radioButton1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Option 1"
-            android:textSize="25sp"
-            android:layout_marginTop="20dp"/>
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Option 2"
-            android:textSize="25sp"
-            android:layout_marginTop="20dp"/>
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Option 3"
-            android:textSize="25sp"
-            android:layout_marginTop="20dp"/>
-
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Option 4"
-            android:textSize="25sp"
-            android:layout_marginTop="20dp"/>
-
-        <RadioButton
-            android:id="@+id/radioButton5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Option 5"
-            android:textSize="25sp"
-            android:layout_marginTop="20dp"
-            />
     </RadioGroup>
 
 

@@ -55,12 +55,23 @@
     </ProgressBar>
 
     <TextView
+        android:id="@+id/question_prefix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        android:textColor="@color/dark_blue"
+        android:layout_marginStart="5dp"
+        android:textSize="30sp"
+        >
+    </TextView>
+
+    <TextView
         android:id="@+id/question_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/question_prefix"
         android:text="Ich kenne meine Ressourcen"
         android:textColor="@color/dark_blue"
         android:layout_marginStart="5dp"
