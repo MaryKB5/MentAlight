@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     private boolean screeningFinished = true;
     private LikertFragment currentFragment;
 
-    private boolean alreadyShown = false;
+    private boolean firstSectionIntroAlreadyShown = false;
     private boolean introShown = false;
     private int sectionNumber = 0;
     private HashMap<String, String> savedResults = new HashMap<>();
@@ -166,10 +166,22 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             showIntro(questionnaire);
             introShown = true;
         }
-        if(alreadyShown){
+        if(firstSectionIntroAlreadyShown){
             showIntroSection(sections[sectionNumber]);
         }
+        if(lastQuestionReached){
+            currentQuestion = 1;
+            lastQuestionReached = false;
+            currentFrag = 0;
+            continueButton.setText("Weiter");
+        }
+
         questions = sections[sectionNumber].getQuestions();
+
+        for(Question lol: questions){
+            Log.d("rofl", lol.getQuestionText());
+        }
+
         questionText.setText(questions.get(0).getQuestionText());
         numberOfQuestions = sections[sectionNumber].getNumQuest();
         initProgressBar();
@@ -256,6 +268,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     }
 
     private void continueButtonClicked() {
+        Log.d("xd", Integer.toString(currentQuestion));
         if(questionnaire == questionnaireZTPB){
             if (lastQuestionReached) {
                 saveInputs();
@@ -349,10 +362,10 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         if (fragment != null) {
             transaction.remove(fragment).commit();
         }
-        if(questionnaire.getSections() != null && !alreadyShown){
+        if(questionnaire.getSections() != null && !firstSectionIntroAlreadyShown){
             Section[] sections = questionnaire.getSections();
             showIntroSection(sections[0]);
-            alreadyShown = true;
+            firstSectionIntroAlreadyShown = true;
         }
     }
 }
