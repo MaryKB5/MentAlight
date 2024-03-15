@@ -5,32 +5,17 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <com.google.android.material.checkbox.MaterialCheckBox
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="option 1"
-        android:textSize="25sp">
-    </com.google.android.material.checkbox.MaterialCheckBox>
+        android:layout_height="wrap_content">
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="option 2"
-        android:textSize="25sp">
-    </com.google.android.material.checkbox.MaterialCheckBox>
+        <LinearLayout
+            android:id="@+id/checkbox_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="option 3"
-        android:textSize="25sp">
-    </com.google.android.material.checkbox.MaterialCheckBox>
-
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="option 4"
-        android:textSize="25sp">
-    </com.google.android.material.checkbox.MaterialCheckBox>
+    </ScrollView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

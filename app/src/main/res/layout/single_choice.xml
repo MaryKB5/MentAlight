@@ -8,14 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/radioGroup">
 
         <RadioButton
             android:id="@+id/radioButton1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Option 1"
             style="@style/Widget.MaterialComponents.CompoundButton.RadioButton"
             android:textSize="25sp"
             android:layout_marginLeft="10dp"
@@ -26,7 +26,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Option 2"
             style="@style/Widget.MaterialComponents.CompoundButton.RadioButton"
             android:textSize="25sp"
             android:layout_marginRight="10dp"

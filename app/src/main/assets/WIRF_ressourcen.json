@@ -15,7 +15,7 @@
                     "input_text": ["0", "1", "2", "3", "4", "5"],
                     "question_text": "... ich mir bei anderen Rat geholt habe."
                 },
-                {  
+                {
                     "quest_id": 2,
                     "type": "likert_scale",
                     "input_text": ["0", "1", "2", "3", "4", "5"],
@@ -169,7 +169,7 @@
             "sec_title": "Ressourcen im Zusammenhang mit aktuellen Problemen",
             "sec_intro": "Im Moment hast du vielleicht auch Schwierigkeiten die du bearbeiten willst (evtl. mit Unterstützung durch eine Therapie). Auch das ist eine besondere Situation, mit der jeder Mensch unterschiedlich umgeht. Das heißt, dass Menschen auch hier Ressourcen über die sie verfügen, unter Umständen nutzen. Dies kann den Umgang mit aktuellen Problemen (und auch eine Therapie) beeinflussen. Im Folgenden sind verschiedene Aussagen aufgeführt. Beurteile bitte, wie sehr diese Aussagen auf dich bei deiner aktuellen Problematik (und ggf. der Behandlungssituation) zutreffen.",
             "prefix": "Mit meinen aktuellen Schwierigkeiten und Problemen gehe ich um, indem ....",
-            "num_quest": 12,
+            "num_quest": 13,
             "questions": [
                 { 
                     "quest_id": 1,

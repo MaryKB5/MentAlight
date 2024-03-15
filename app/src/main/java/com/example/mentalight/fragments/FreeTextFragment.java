@@ -10,11 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.mentalight.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FreeTextFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FreeTextFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match

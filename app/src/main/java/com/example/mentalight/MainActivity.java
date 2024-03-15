@@ -48,9 +48,8 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     private ArrayList<Question> questions = new ArrayList<>();
     private Questionnaire questionnaireZTPB;
     private boolean lastQuestionReached;
-    private LikertFragment currentFragmentZTPB = new LikertFragment();
     private boolean screeningFinished = true;
-    private LikertFragment currentFragment;
+    //private Fragment currentFragment;
 
     private boolean firstSectionIntroAlreadyShown = false;
     private boolean introShown = false;
@@ -184,6 +183,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
 
         questionText.setText(questions.get(0).getQuestionText());
         numberOfQuestions = sections[sectionNumber].getNumQuest();
+        Log.d("xd", Integer.toString(numberOfQuestions));
         initProgressBar();
 
         fragments = new ArrayList<>();
@@ -255,20 +255,20 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             case "likert_scale":
                 return LikertFragment.newInstance(question.getInputText());
             case "single_choice":
-                return SingleChoiceFragment.newInstance("", "");
+                return SingleChoiceFragment.newInstance(question.getInputText());
             case "checkbox":
-                return CheckboxFragment.newInstance("", "");
+                return CheckboxFragment.newInstance(question.getInputText());
             case "free_text":
                 return FreeTextFragment.newInstance("", "");
             case "chips":
-                return ChipsFragment.newInstance("", "");
+                return ChipsFragment.newInstance(question.getInputText());
             default:
                 return null;
         }
     }
 
     private void continueButtonClicked() {
-        Log.d("xd", Integer.toString(currentQuestion));
+
         if(questionnaire == questionnaireZTPB){
             if (lastQuestionReached) {
                 saveInputs();
@@ -282,22 +282,41 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             }
         } else{
             currentFrag++;
-            currentFragment = (LikertFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container);
 
-            if(!currentFragment.oneRadioButtonChecked()){
-                Toast.makeText(this, "Bitte eine Antwort auswählen", Toast.LENGTH_SHORT).show();
-            } else{
-                questionText.setText(questions.get(currentQuestion).getQuestionText());
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, fragments.get(currentFrag))
-                        .commit();
-                if(currentQuestion == numberOfQuestions-1){
-                    continueButton.setText("Abschließen");
-                    lastQuestionReached = true;
+            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+
+            //@TODO restlichen Toasts noch implementieren
+            if(currentFragment instanceof LikertFragment){
+                LikertFragment currentLikertFragment = (LikertFragment) currentFragment;
+                if(!currentLikertFragment.oneRadioButtonChecked()) {
+                    Toast.makeText(this, "Bitte eine Antwort auswählen", Toast.LENGTH_SHORT).show();
                 }
-                currentQuestion++;
-                updateProgressBar();
+            } else if(currentFragment instanceof ChipsFragment){
+
+            } else if(currentFragment instanceof FreeTextFragment){
+
+            } else if(currentFragment instanceof SingleChoiceFragment){
+                SingleChoiceFragment currentSingleFragment = (SingleChoiceFragment) currentFragment;
+                if(!currentSingleFragment.oneRadioButtonChecked()) {
+                    Toast.makeText(this, "Bitte eine Antwort auswählen", Toast.LENGTH_SHORT).show();
+                }
+
+            } else if(currentFragment instanceof ChipsFragment){
+
             }
+
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, fragments.get(currentFrag))
+                    .commit();
+            questionText.setText(questions.get(currentQuestion).getQuestionText());
+            if(currentQuestion == numberOfQuestions-1){
+                continueButton.setText("Abschließen");
+                lastQuestionReached = true;
+            }
+            currentQuestion++;
+            updateProgressBar();
+
+
         }
 
 
@@ -312,11 +331,11 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
 
         if ((currentQuestion - 1) >= 0) {
             Log.d("sers", questions.get(currentQuestion - 1).getQuestionText());
-            questionText.setText(questions.get(currentQuestion - 1).getQuestionText());
+
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, fragments.get(currentFrag))
                     .commit();
-
+            questionText.setText(questions.get(currentQuestion - 1).getQuestionText());
             updateProgressBar();
         } else{
             Toast.makeText(this, "Anfang des Fragebogens erreicht!", Toast.LENGTH_SHORT).show();

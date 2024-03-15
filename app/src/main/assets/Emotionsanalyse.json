@@ -711,92 +711,30 @@
             "sec_subtitle": "Reaktion Anderer",
             "sec_intro": "Wie reagieren Ihre Bezugspersonen auf Ihren Umgang mit Ihren Gefühlen?",
             "prefix":"Auf meine verschiedenen Umgangsarten mit meinen Gefühlen reagieren meine wichtigen Bezugspersonen wiederholt so:",
-            "num_quest": 17,
+            "num_quest": 1,
             "questions": [
                 {
                     "quest_id": 1,
                     "type": "checkbox",
-                    "question_text": "Er/sie merkt gar nicht, daß ich dieses Gefühl habe"
-                },
-                {
-                    "quest_id": 2,
-                    "type": "checkbox",
-                    "question_text": "Er/sie sagt, es gäbe doch keinen Grund für dieses Gefühl"
-                },
-                {
-                    "quest_id": 3,
-                    "type": "checkbox",
-                    "question_text": "Er/sie sagt, ich solle mich doch zusammenreißen"
-                },
-                {
-                    "quest_id": 4,
-                    "type": "checkbox",
-                    "question_text": "Er/sie versteht nicht, was ich brauche"
-                },
-                {
-                    "quest_id": 5,
-                    "type": "checkbox",
-                    "question_text": "Er/sie sagt Dinge, die das Gefühl noch stärker machen"
-                },
-                {
-                    "quest_id": 6,
-                    "type": "checkbox",
-                    "question_text": "Er/sie zeigt keinerlei Gefühle, bleibt kalt"
-                },
-                {
-                    "quest_id": 7,
-                    "type": "checkbox",
-                    "question_text": "Er/sie wird ärgerlich, wütend"
-                },
-                {
-                    "quest_id": 8,
-                    "type": "checkbox",
-                    "question_text": "Er/sie lehnt mich ab, weist mich ab"
-                },
-                {
-                    "quest_id": 9,
-                    "type": "checkbox",
-                    "question_text": "Er/sie bestraft mich mit Liebesentzug"
-                },
-                {
-                    "quest_id": 10,
-                    "type": "checkbox",
-                    "question_text": "Er/sie rechtfertigt sich"
-                },
-                {
-                    "quest_id": 11,
-                    "type": "checkbox",
-                    "question_text": "Er/sie versucht, sich mit Ausreden rauszureden"
-                },
-                {
-                    "quest_id": 12,
-                    "type": "checkbox",
-                    "question_text": "Er/sie sagt nichts mehr, verstummt"
-                },
-                {
-                    "quest_id": 13,
-                    "type": "checkbox",
-                    "question_text": "Er/sie rennt einfach weg, raus"
-                },
-                {
-                    "quest_id": 14,
-                    "type": "checkbox",
-                    "question_text": "Er/sie ist sehr betroffen"
-                },
-                {
-                    "quest_id": 15,
-                    "type": "checkbox",
-                    "question_text": "Er/sie bekommt das gleiche Gefühl wie ich"
-                },
-                {
-                    "quest_id": 16,
-                    "type": "checkbox",
-                    "question_text": "Er/sie zeigt Verständnis für mich und mein Gefühl"
-                },
-                {
-                    "quest_id": 17,
-                    "type": "checkbox",
-                    "question_text": "Er/sie tut/sagt das, was ich in diesem Moment brauche/will"
+                    "input_text": [
+                        "Er/sie merkt gar nicht, daß ich dieses Gefühl habe",
+                        "Er/sie sagt, es gäbe doch keinen Grund für dieses Gefühl",
+                        "Er/sie sagt, ich solle mich doch zusammenreißen",
+                        "Er/sie versteht nicht, was ich brauche",
+                        "Er/sie sagt Dinge, die das Gefühl noch stärker machen",
+                        "Er/sie zeigt keinerlei Gefühle, bleibt kalt",
+                        "Er/sie wird ärgerlich, wütend",
+                        "Er/sie lehnt mich ab, weist mich ab",
+                        "Er/sie bestraft mich mit Liebesentzug",
+                        "Er/sie rechtfertigt sich",
+                        "Er/sie versucht, sich mit Ausreden rauszureden",
+                        "Er/sie rennt einfach weg, raus",
+                        "Er/sie ist sehr betroffen",
+                        "Er/sie bekommt das gleiche Gefühl wie ich",
+                        "Er/sie zeigt Verständnis für mich und mein Gefühl",
+                        "Er/sie tut/sagt das, was ich in diesem Moment brauche/will"
+                    ],
+                    "question_text": "Kreuze alle zutreffenden Aussagen an:"
                 }
             ]
         }
