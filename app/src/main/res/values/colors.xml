@@ -3,10 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorPrimary">#01a3a4</color>
-    <color name="colorSecondary">#00d2d3</color>
+    <color name="colorPrimary">#58B19F</color>
+    <color name="colorSecondary">#9AECDB</color>
 
-    <color name="dark_blue">#1d2d44</color>
+
+    <color name="dark_blue">#2C3A47</color>
     <color name="beige">#d6d2d2</color>
 
 </resources>

@@ -22,6 +22,7 @@ import com.example.mentalight.fragments.ChipsFragment;
 import com.example.mentalight.fragments.FreeTextFragment;
 import com.example.mentalight.fragments.IntroFragment;
 import com.example.mentalight.fragments.LikertFragment;
+import com.example.mentalight.fragments.OverviewFragment;
 import com.example.mentalight.fragments.SingleChoiceFragment;
 
 import org.json.JSONException;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     private Questionnaire questionnaire, rosenbergSelfEsteem, dassQuestionnaire, sek27, wirf;
 
     private final QuestionnaireManager manager = new QuestionnaireManager();
+
+    private ArrayList<Questionnaire> ja = new ArrayList<>();
     private int currentQuestion = 1;
     private int currentFrag = 0;
     private int numberOfQuestions;
@@ -48,7 +51,9 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     private ArrayList<Question> questions = new ArrayList<>();
     private Questionnaire questionnaireZTPB;
     private boolean lastQuestionReached;
-    private boolean screeningFinished = true;
+    private boolean screeningFinished = false;
+
+    private OverviewFragment overview = new OverviewFragment();
     //private Fragment currentFragment;
 
     private boolean firstSectionIntroAlreadyShown = false;
@@ -271,9 +276,15 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
 
         if(questionnaire == questionnaireZTPB){
             if (lastQuestionReached) {
+
                 saveInputs();
                 screeningFinished = true;
-                //assessZTPB();
+                //ArrayList<Questionnaire> ja =  assessZTPB();
+                String[] rofl = new String[2];
+                rofl[0] = "test 1";
+                rofl[1] = "test 2";
+                initOverview(rofl);
+
             }
         }
         if(lastQuestionReached){
@@ -370,8 +381,20 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         Log.d("quest", wirf.getTitle());
     }
 
-    //private ArrayList<Questionnaire> assessZTPB(){
-    //}
+    private void initOverview(String[] titles){
+        OverviewFragment tete = OverviewFragment.newInstance(titles);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.intro_container,tete)
+                .commit();
+    }
+
+    private ArrayList<Questionnaire> assessZTPB(){
+        ArrayList<Questionnaire> test = new ArrayList<>();
+        test.add(dassQuestionnaire);
+        test.add(rosenbergSelfEsteem);
+        return test;
+    }
 
     @Override
     public void onStartButtonClicked() {
