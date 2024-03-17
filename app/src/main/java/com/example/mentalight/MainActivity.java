@@ -32,43 +32,37 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements OnStartButtonClickListener, OnQuestionnaireClickedListener{
-    private Questionnaire questionnaire, rosenbergSelfEsteem, dassQuestionnaire, sek27, wirf;
-
+    private Questionnaire questionnaire, rosenbergSelfEsteem, dassQuestionnaire, sek27, wirf, questionnaireZTPB, emotionsanalyse;
     private final QuestionnaireManager manager = new QuestionnaireManager();
-
-    private boolean overviewShown = false;
-
     private ArrayList<Questionnaire> relevantQuestionnaires = new ArrayList<>();
     private ArrayList<Questionnaire> furtherQuestionnaires = new ArrayList<>();
     private int currentQuestion = 1;
     private int currentFrag = 0;
     private int numberOfQuestions;
-
+    private int sectionNumber = 0;
+    private int subsectionNumber = 0;
     private TextView questionText, progressText;
     private Button continueButton;
     private ImageButton backButton;
-    private boolean goOn = true;
-    private Button exitButton;
-    private ProgressBar progressBar;
-
-    private ArrayList<Fragment> fragments;
-
-    private ArrayList<Question> questions = new ArrayList<>();
-    private Questionnaire questionnaireZTPB;
-    private boolean lastQuestionReached;
-    private boolean screeningFinished = false;
-
-    private OverviewFragment overview = new OverviewFragment();
-    //private Fragment currentFragment;
-
     private boolean firstSectionIntroAlreadyShown = false;
     private boolean introShown = false;
-    private int sectionNumber = 0;
+    private boolean goOn = true;
+    private boolean lastQuestionReached;
+    private boolean screeningFinished = false;
+    private boolean overviewShown = false;
+    private Button exitButton;
+    private ProgressBar progressBar;
+    private ArrayList<Fragment> fragments;
+    private ArrayList<Question> questions;
+    private String[] relevantQuestionnairesTitles;
+    private Subsection[] subsections;
     private HashMap<String, String> savedResults = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        questions = new ArrayList<>();
+        questionnaire = new Questionnaire("", "", "", "", 0, questions);
         setContentView(R.layout.activity_main);
         questionText = findViewById(R.id.question_text);
         continueButton = findViewById(R.id.continue_button);
@@ -79,41 +73,23 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         backButton.setOnClickListener(v -> {
             backButtonClicked();
         });
+        exitButton = findViewById(R.id.exit_button);
+        exitButton.setVisibility(View.GONE);
 
         if (!screeningFinished) {
             displayScreening();
-        } else {
-            //@TODO switch case, der ZTPB auswertet und entsprechende Fragebögen übergibt als Liste
-
-
-
-
-
-            //initUI(sek27, questions);
-
         }
+
     }
 
+    // the ZTPB screening questionnaire should only be shown once
     private void displayScreening() {
         questionnaireZTPB = getQuestionnaireFromFile("ZTPB.json");
         questions = questionnaireZTPB.getQuestions();
-        for(Question question: questions){
-            Log.d("Frage", question.getQuestionText());
-        }
-        questions = manager.loadQuestionsFromQuestionnaire(questionnaireZTPB);
         initUI(questionnaireZTPB, questions);
     }
 
-    private Questionnaire getQuestionnaireFromFile(String fileName) {
-        String json = AssetsReader.loadJsonFromAssets(this, fileName);
-        try {
-            questionnaire = manager.parseQuestionnaireJson(json);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        return questionnaire;
-    }
-
+    // initializing the user interface
     private void initUI(Questionnaire questionnaire, ArrayList<Question> questions) {
         showIntro(questionnaire);
 
@@ -148,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     }
 
     private void initUIsections(Questionnaire questionnaire, Section[] sections){
+
         if(!introShown){
             showIntro(questionnaire);
             introShown = true;
@@ -162,15 +139,20 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             continueButton.setText("Weiter");
         }
 
-        questions = sections[sectionNumber].getQuestions();
-
-        for(Question lol: questions){
-            Log.d("rofl", lol.getQuestionText());
+        if(sections[sectionNumber].getSubsections() != null){
+            subsections = sections[sectionNumber].getSubsections();
+            Log.d("subsection", Integer.toString(subsections.length));
+            questions = subsections[subsectionNumber].getQuestions();
+            for (Question x : questions) {
+                Log.d("jadaswärs", x.getQuestionText());
+            }
+            numberOfQuestions = subsections[subsectionNumber].getNumQuest();
+        } else {
+            questions = sections[sectionNumber].getQuestions();
+            numberOfQuestions = sections[sectionNumber].getNumQuest();
         }
 
         questionText.setText(questions.get(0).getQuestionText());
-        numberOfQuestions = sections[sectionNumber].getNumQuest();
-        Log.d("xd", Integer.toString(numberOfQuestions));
         initProgressBar();
 
         fragments = new ArrayList<>();
@@ -180,14 +162,9 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             fragments.add(fragment);
         }
 
-        for (Fragment fragment : fragments) {
-            Log.d("jadaswärs", "Fragment: " + fragment.getClass().getSimpleName());
-        }
-
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragments.get(0))
                 .commit();
-
 
 
         TextView prefix = findViewById(R.id.question_prefix);
@@ -197,9 +174,16 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         } else{
             prefix.setVisibility(View.GONE);
         }
-
-        sectionNumber++;
-
+        if(sections[sectionNumber].getSubsections() == null){
+            sectionNumber++;
+        } else {
+            if(subsectionNumber == subsections.length-1){
+                Log.d("jaschon", Integer.toString(sectionNumber));
+                sectionNumber++;
+                subsectionNumber = 0;
+            }
+        }
+        subsectionNumber++;
     }
 
     private void initProgressBar() {
@@ -262,56 +246,61 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
 
     private void continueButtonClicked() {
 
-        if(questionnaire == questionnaireZTPB){
-            if (lastQuestionReached) {
+        if(lastQuestionReached){
+            currentQuestion = 1;
+            lastQuestionReached = false;
+            currentFrag = 0;
+            continueButton.setText("Weiter");
+
+            if(questionnaire.getSections() != null && overviewShown){
+                initUIsections(questionnaire, questionnaire.getSections());
+            }
+
+            if (questionnaire == questionnaireZTPB) {
                 initFurtherQuestionnaires();
                 saveInputs();
                 screeningFinished = true;
                 relevantQuestionnaires =  assessZTPB();
-                String[] relevantQuestionnairesTitles = new String[relevantQuestionnaires.size()];
+                relevantQuestionnairesTitles = new String[relevantQuestionnaires.size()];
                 for(int i = 0; i < relevantQuestionnairesTitles.length; i++){
                    relevantQuestionnairesTitles[i] = relevantQuestionnaires.get(i).getTitle();
                 }
+
                 initOverview(relevantQuestionnairesTitles);
             }
-        }
-        if(lastQuestionReached){
-            if(questionnaire.getSections() != null && overviewShown){
-                initUIsections(questionnaire, questionnaire.getSections());
-            }
         } else{
-
-
             Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
 
-            if(currentFragment instanceof LikertFragment){
-                LikertFragment currentLikertFragment = (LikertFragment) currentFragment;
-                if(!currentLikertFragment.oneRadioButtonChecked()) {
-                    Toast.makeText(this, "Bitte eine Antwort auswählen", Toast.LENGTH_SHORT).show();
-                    goOn = false;
-                } else {
-                    goOn = true;
-                }
-            } else if(currentFragment instanceof ChipsFragment){
-               ChipsFragment currentLikertFragment = (ChipsFragment) currentFragment;
-                if(!currentLikertFragment.oneChipChecked()) {
-                    Toast.makeText(this, "Bitte eine Antwort auswählen", Toast.LENGTH_SHORT).show();
-                    goOn = false;
-                } else {
-                    goOn = true;
-                }
 
-            } else if(currentFragment instanceof FreeTextFragment){
 
-            } else if(currentFragment instanceof SingleChoiceFragment){
-                SingleChoiceFragment currentSingleFragment = (SingleChoiceFragment) currentFragment;
-                if(!currentSingleFragment.oneRadioButtonChecked()) {
-                    Toast.makeText(this, "Bitte eine Antwort auswählen", Toast.LENGTH_SHORT).show();
-                    goOn = false;
-                } else{
-                    goOn = true;
-                }
-            }
+
+
+             if(currentFragment instanceof LikertFragment){
+                              LikertFragment currentLikertFragment = (LikertFragment) currentFragment;
+                              if(!currentLikertFragment.oneRadioButtonChecked()) {
+                                  Toast.makeText(this, "Bitte eine Antwort auswählen", Toast.LENGTH_SHORT).show();
+                                  goOn = false;
+                              } else {
+                                  goOn = true;
+                              }
+                          } else if(currentFragment instanceof ChipsFragment){
+                             ChipsFragment currentLikertFragment = (ChipsFragment) currentFragment;
+                              if(!currentLikertFragment.oneChipChecked()) {
+                                  Toast.makeText(this, "Bitte eine Antwort auswählen", Toast.LENGTH_SHORT).show();
+                                  goOn = false;
+                              } else {
+                                  goOn = true;
+                              }
+
+                          } else if(currentFragment instanceof SingleChoiceFragment){
+                              SingleChoiceFragment currentSingleFragment = (SingleChoiceFragment) currentFragment;
+                              if(!currentSingleFragment.oneRadioButtonChecked()) {
+                                  Toast.makeText(this, "Bitte eine Antwort auswählen", Toast.LENGTH_SHORT).show();
+                                  goOn = false;
+                              } else{
+                                  goOn = true;
+                              }
+                          }
             if(goOn){
                 currentFrag++;
 
@@ -327,10 +316,6 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
                 updateProgressBar();
             }
         }
-
-
-
-        //@TODO questionnaire Variable muss dann unbedingt überschrieben werden für die anderen Fragebögen
     }
 
     private void backButtonClicked() {
@@ -371,29 +356,42 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             i++;
         }
     }
+    public Questionnaire getQuestionnaireFromFile(String fileName) {
+        String json = AssetsReader.loadJsonFromAssets(this, fileName);
+        try {
+            questionnaire = manager.parseQuestionnaireJson(json);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        return questionnaire;
+    }
 
 
 
     private void initFurtherQuestionnaires(){
         dassQuestionnaire = getQuestionnaireFromFile("DASS_fragebogen.json");
         furtherQuestionnaires.add(dassQuestionnaire);
-        //Questionnaire emotionsanalyse = getQuestionnaireFromFile("Emotionsanalyse.json");
         rosenbergSelfEsteem = getQuestionnaireFromFile("rosenberg_self_esteem_scale.json");
         furtherQuestionnaires.add(rosenbergSelfEsteem);
         sek27 = getQuestionnaireFromFile("SEK-27_emotionale_Kompetenzen.json");
         furtherQuestionnaires.add(sek27);
         wirf = getQuestionnaireFromFile("WIRF_ressourcen.json");
         furtherQuestionnaires.add(wirf);
+        emotionsanalyse = getQuestionnaireFromFile("Emotionsanalyse.json");
+        furtherQuestionnaires.add(emotionsanalyse);
     }
 
     private void initOverview(String[] titles){
-        Log.d("bin dort","");
         OverviewFragment overview = OverviewFragment.newInstance(titles);
         overview.setQuestionnaireClickedListener(this);
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.intro_container,overview)
                 .commit();
+        exitButton.setVisibility(View.VISIBLE);
+        exitButton.setOnClickListener(v -> {
+            exitButtonClicked();
+        });
     }
 
     private ArrayList<Questionnaire> assessZTPB(){
@@ -426,6 +424,9 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
                     if(!furtherQuestionnaires.contains(sek27)){
                         furtherQuestionnaires.add(sek27);
                     }
+                    if(!furtherQuestionnaires.contains(emotionsanalyse)){
+                        furtherQuestionnaires.add(emotionsanalyse);
+                    }
                 }
             }
             if(key.equals("question_37") || key.equals("question_38") || key.equals("question_39") || key.equals("question_40")) {
@@ -448,6 +449,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             transaction.remove(fragment).commit();
         }
         if(questionnaire.getSections() != null && !firstSectionIntroAlreadyShown){
+            Log.d("hierja", "");
             Section[] sections = questionnaire.getSections();
             showIntroSection(sections[0]);
             firstSectionIntroAlreadyShown = true;
@@ -457,30 +459,26 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     @Override
     public void onQuestionnaireClicked(String title) {
         overviewShown = true;
-        for(Questionnaire questionnaire: relevantQuestionnaires){
-            if(title.equals(questionnaire.getTitle())){
-                if(questionnaire.getSections() != null){
-                    initUIsections(questionnaire, questionnaire.getSections());
+
+        for(Questionnaire currentQuestionnaire: relevantQuestionnaires){
+            if(title.equals(currentQuestionnaire.getTitle())){
+                if(currentQuestionnaire.getSections() != null){
+                    questionnaire = currentQuestionnaire;
+                    initUIsections(currentQuestionnaire, currentQuestionnaire.getSections());
                 } else {
-                    questions = manager.loadQuestionsFromQuestionnaire(questionnaire);
-                    initUI(questionnaire, questions);
-                    //Section[] test = wirf.getSections();
-                    //Log.d("huhuuu", test[0].getTitle());
-
-                    //questions = rosenbergSelfEsteem.getQuestions();
-                    //questions = manager.loadQuestionsFromQuestionnaire(rosenbergSelfEsteem);
-
-                    //questions = sek27.getQuestions();
-                    //questions = manager.loadQuestionsFromQuestionnaire(sek27);
-
-                    //for(Question quest: questions){
-                    //Log.d("wuri", quest.getQuestionText());
-                    //}
-
-                    //questionnaire = wirf;
-
+                    questions = currentQuestionnaire.getQuestions();
+                    questionnaire = currentQuestionnaire;
+                    initUI(currentQuestionnaire, questions);
                 }
             }
         }
+    }
+    private void exitButtonClicked(){
+        overviewShown = false;
+        sectionNumber = 0;
+        subsectionNumber = 0;
+        currentQuestion = 1;
+        currentFrag = 0;
+        initOverview(relevantQuestionnairesTitles);
     }
 }

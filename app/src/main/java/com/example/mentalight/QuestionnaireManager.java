@@ -1,5 +1,6 @@
 package com.example.mentalight;
 
+import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -8,14 +9,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class QuestionnaireManager {
-    Questionnaire questionnaire;
+    Questionnaire questionnaire, wirf, sek27, rosenbergSelfEsteem, dassQuestionnaire;
     public Questionnaire parseQuestionnaireJson(String json) throws JSONException {
         JSONObject jsonObject = new JSONObject(json);
         String title = jsonObject.getString("title");
-        String intro = jsonObject.getString("intro_text");
-        String subtitle, prefix;
+
+        String subtitle, prefix, intro;
+        if(jsonObject.has("intro_text")){
+            intro = jsonObject.getString("intro_text");
+        } else {
+            intro = "";
+        }
         int numQuest;
         if(jsonObject.has("subtitle")){
             subtitle = jsonObject.getString("subtitle");
@@ -34,7 +41,6 @@ public class QuestionnaireManager {
         }
 
         if(jsonObject.has("sections")){
-            Log.d("isterhier", "ja");
             Section[] sectionArray = getSections(jsonObject);
             questionnaire = new Questionnaire(title, intro, subtitle, prefix, numQuest , sectionArray);
         } else {
@@ -97,11 +103,15 @@ public class QuestionnaireManager {
                 numQuest = 0;
             }
             if(sectionObject.has("subsections")){
+                Log.d("moinmoin","");
                 Subsection[] subsectionsArray = getSubsections(sectionObject);
                 Section section = new Section(title, subtitle, intro, prefix, numQuest, subsectionsArray);
                 sections[i] = section;
             } else {
                 ArrayList<Question> questions = getQuestionList(sectionObject);
+                for(Question test: questions){
+                    Log.d("und hier", test.getQuestionText());
+                }
                 Section section = new Section(title, subtitle, intro, prefix, numQuest, questions);
                 sections[i] = section;
             }
@@ -137,20 +147,12 @@ public class QuestionnaireManager {
             } else {
                 numQuest = 0;
             }
+            Log.d("und hier", "");
             ArrayList<Question> questions = getQuestionList(subsectionObject);
+
             Subsection subsection = new Subsection(title, subtitle, intro, prefix, numQuest, questions);
             subsections[i] = subsection;
         }
         return subsections;
-    }
-
-    public ArrayList<Question> loadQuestionsFromQuestionnaire(Questionnaire questionnaire){
-        ArrayList<Question> list = questionnaire.getQuestions();
-        return list;
-    }
-
-    public ArrayList<Question> loadQuestionsFromSection(Section section){
-        ArrayList<Question> list = section.getQuestions();
-        return list;
     }
 }

@@ -61,7 +61,7 @@ public class LikertFragment extends Fragment {
             for (String text : inputTexts) {
                 RadioButton radioButton = new RadioButton(requireContext());
                 radioButton.setText(text);
-                radioButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+                radioButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 27);
 
                 ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT,

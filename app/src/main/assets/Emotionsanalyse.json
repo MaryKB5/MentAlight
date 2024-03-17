@@ -10,7 +10,7 @@
                 {
                     "subsec_id": 1,
                     "sub_title": "Freude",
-                    "num_quest": 15,
+                    "num_quest": 30,
                     "questions": [
                         {
                             "quest_id": 1,
@@ -197,7 +197,7 @@
                 {
                     "subsec_id": 2,
                     "sub_title": "Trauer",
-                    "num_quest": 8,
+                    "num_quest": 16,
                     "questions": [
                         {
                             "quest_id": 1,
@@ -300,7 +300,7 @@
                 {
                     "subsec_id": 3,
                     "sub_title": "Angst",
-                    "num_quest": 11,
+                    "num_quest": 22,
                     "questions": [
                         {
                             "quest_id": 1,
@@ -439,7 +439,7 @@
                 {
                     "subsec_id": 4,
                     "sub_title": "Wut",
-                    "num_quest": 9,
+                    "num_quest": 18,
                     "questions": [
                         {
                             "quest_id": 1,
@@ -557,7 +557,8 @@
             "sec_id": 2,
             "sec_title": "Emotionsanalyse II",
             "sec_subtitle": "Mein Umgang mit meinen Gefühlen",
-            "sec_intro": "Bisheriger dysfunktionaler Umgang mit Gefühlen",
+            "sec_intro": "Mein Umgang mit meinen Gefühlen",
+            "num_quest": 26,
             "prefix":"Bisher ging ich so mit meinen Gefühlen um ... 0=nein, 1=etwas, 2=mittel, 3=sehr",
             "questions": [
                 {
@@ -568,6 +569,7 @@
                 },
                 {
                     "quest_id": 1,
+                    "input_text": [],
                     "type": "free_text",
                     "question_text": "Bei welchem Gefühl?"
                 },
@@ -579,6 +581,7 @@
                 },
                 {
                     "quest_id": 2,
+                    "input_text": [],
                     "type": "free_text",
                     "question_text": "Bei welchem Gefühl?"
                 },
@@ -591,6 +594,7 @@
                 {
                     "quest_id": 3,
                     "type": "free_text",
+                    "input_text": [],
                     "question_text": "Bei welchem Gefühl?"
                 },
                 {
@@ -602,6 +606,7 @@
                 {
                     "quest_id": 4,
                     "type": "free_text",
+                    "input_text": [],
                     "question_text": "Bei welchem Gefühl?"
                 },
                 {
@@ -613,6 +618,7 @@
                 {
                     "quest_id": 5,
                     "type": "free_text",
+                    "input_text": [],
                     "question_text": "Bei welchem Gefühl?"
                 },
                 {
@@ -624,6 +630,7 @@
                 {
                     "quest_id": 6,
                     "type": "free_text",
+                    "input_text": [],
                     "question_text": "Bei welchem Gefühl?"
                 },
                 {
@@ -635,6 +642,7 @@
                 {
                     "quest_id": 7,
                     "type": "free_text",
+                    "input_text": [],
                     "question_text": "Bei welchem Gefühl?"
                 },
                 {
@@ -646,6 +654,7 @@
                 {
                     "quest_id": 8,
                     "type": "free_text",
+                    "input_text": [],
                     "question_text": "Bei welchem Gefühl?"
                 },
                 {
@@ -657,6 +666,7 @@
                 {
                     "quest_id": 9,
                     "type": "free_text",
+                    "input_text": [],
                     "question_text": "Bei welchem Gefühl?"
                 },
                 {
@@ -668,6 +678,7 @@
                 {
                     "quest_id": 10,
                     "type": "free_text",
+                    "input_text": [],
                     "question_text": "Bei welchem Gefühl?"
                 },
                 {
@@ -679,6 +690,7 @@
                 {
                     "quest_id": 11,
                     "type": "free_text",
+                    "input_text": [],
                     "question_text": "Bei welchem Gefühl?"
                 },
                 {
@@ -690,6 +702,7 @@
                 {
                     "quest_id": 12,
                     "type": "free_text",
+                    "input_text": [],
                     "question_text": "Bei welchem Gefühl?"
                 },
                 {
@@ -701,6 +714,7 @@
                 {
                     "quest_id": 13,
                     "type": "free_text",
+                    "input_text": [],
                     "question_text": "Bei welchem Gefühl?"
                 }
             ]

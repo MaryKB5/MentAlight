@@ -59,7 +59,11 @@ public class ChipsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         chipGroup = view.findViewById(R.id.chip_group);
 
-        if (inputTexts != null && chipGroup.getChildCount() == inputTexts.length) {
+        if(inputTexts.length < 4){
+            Chip chip = (Chip) chipGroup.getChildAt(3);
+            chip.setVisibility(View.GONE);
+        }
+        if (inputTexts != null ) {
             for (int i = 0; i < inputTexts.length; i++) {
                 String text = inputTexts[i];
                 Chip chip = (Chip) chipGroup.getChildAt(i);
