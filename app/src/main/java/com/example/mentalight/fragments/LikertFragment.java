@@ -101,14 +101,4 @@ public class LikertFragment extends Fragment {
             return false;
         }
     }
-
-    public void checkRadioButtonForID(int id){
-        radioGroup.check(id);
-    }
-
-
-
-    public int getSelectedRadioButtonId() {
-        return radioGroup.getCheckedRadioButtonId();
-    }
 }

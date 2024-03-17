@@ -2,6 +2,8 @@ package com.example.mentalight.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -23,6 +25,8 @@ public class ChipsFragment extends Fragment {
     private static final String INPUT = "input_texts";
 
     private String[] inputTexts;
+    private ChipGroup chipGroup;
+    private View view;
 
     public ChipsFragment() {
         // Required empty public constructor
@@ -46,18 +50,27 @@ public class ChipsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.chips, container, false);
-        ChipGroup chipGroup = view.findViewById(R.id.chip_group);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.chips, container, false);
+    }
 
-        if (inputTexts != null) {
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        chipGroup = view.findViewById(R.id.chip_group);
+
+        if (inputTexts != null && chipGroup.getChildCount() == inputTexts.length) {
             for (int i = 0; i < inputTexts.length; i++) {
                 String text = inputTexts[i];
                 Chip chip = (Chip) chipGroup.getChildAt(i);
                 chip.setText(text);
             }
         }
-        return view;
+    }
+
+
+    public boolean oneChipChecked() {
+        int checkedChipId = chipGroup.getCheckedChipId();
+        return checkedChipId != View.NO_ID;
     }
 }

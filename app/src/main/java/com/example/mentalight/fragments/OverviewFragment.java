@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.mentalight.OnQuestionnaireClickedListener;
 import com.example.mentalight.OnStartButtonClickListener;
 import com.example.mentalight.Questionnaire;
 import com.example.mentalight.R;
@@ -34,6 +35,7 @@ public class OverviewFragment extends Fragment {
 
     private String[] titlesArray;
     private View view;
+    private OnQuestionnaireClickedListener questionnaireClickedListener;
 
     public OverviewFragment() {
         // Required empty public constructor
@@ -46,7 +48,9 @@ public class OverviewFragment extends Fragment {
         return fragment;
     }
 
-
+    public void setQuestionnaireClickedListener(OnQuestionnaireClickedListener listener) {
+        this.questionnaireClickedListener= listener;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -83,7 +87,9 @@ public class OverviewFragment extends Fragment {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Handle den Klick auf den Button hier
+                    if (questionnaireClickedListener != null) {
+                        questionnaireClickedListener.onQuestionnaireClicked(title);
+                    }
                 }
             });
             buttonContainer.addView(button);

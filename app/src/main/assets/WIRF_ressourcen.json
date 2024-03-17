@@ -19,7 +19,7 @@
                     "quest_id": 2,
                     "type": "likert_scale",
                     "input_text": ["0", "1", "2", "3", "4", "5"],
-                    "question_text": "... ich Aufgaben tatkräftig angepackt habe."
+                    "question_text": "... ich Aufgaben tatkräftig angepackt habe"
                 },
                 { 
                     "quest_id": 3,

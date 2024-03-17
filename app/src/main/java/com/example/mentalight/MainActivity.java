@@ -29,13 +29,17 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements OnStartButtonClickListener {
+public class MainActivity extends AppCompatActivity implements OnStartButtonClickListener, OnQuestionnaireClickedListener{
     private Questionnaire questionnaire, rosenbergSelfEsteem, dassQuestionnaire, sek27, wirf;
 
     private final QuestionnaireManager manager = new QuestionnaireManager();
 
-    private ArrayList<Questionnaire> ja = new ArrayList<>();
+    private boolean overviewShown = false;
+
+    private ArrayList<Questionnaire> relevantQuestionnaires = new ArrayList<>();
+    private ArrayList<Questionnaire> furtherQuestionnaires = new ArrayList<>();
     private int currentQuestion = 1;
     private int currentFrag = 0;
     private int numberOfQuestions;
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     private TextView questionText, progressText;
     private Button continueButton;
     private ImageButton backButton;
+    private boolean goOn = true;
     private Button exitButton;
     private ProgressBar progressBar;
 
@@ -60,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     private boolean introShown = false;
     private int sectionNumber = 0;
     private HashMap<String, String> savedResults = new HashMap<>();
-    ArrayList<Integer> selectedRadioButtonIds = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,34 +80,12 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             backButtonClicked();
         });
 
-        Log.d("bonjo", "ja");
-
         if (!screeningFinished) {
             displayScreening();
         } else {
             //@TODO switch case, der ZTPB auswertet und entsprechende Fragebögen übergibt als Liste
-            initFurtherQuestionnaires();
-            //questions = dassQuestionnaire.getQuestions();
-            //questions = manager.loadQuestionsFromQuestionnaire(dassQuestionnaire);
-            //initUI(dassQuestionnaire, questions);
-            //Section[] test = wirf.getSections();
-            //Log.d("huhuuu", test[0].getTitle());
 
-            //questions = rosenbergSelfEsteem.getQuestions();
-            //questions = manager.loadQuestionsFromQuestionnaire(rosenbergSelfEsteem);
 
-            //questions = sek27.getQuestions();
-            //questions = manager.loadQuestionsFromQuestionnaire(sek27);
-
-            //for(Question quest: questions){
-                //Log.d("wuri", quest.getQuestionText());
-            //}
-
-            questionnaire = wirf;
-
-            if(questionnaire.getSections() != null){
-                initUIsections(questionnaire, questionnaire.getSections());
-            }
 
 
 
@@ -198,9 +180,15 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             fragments.add(fragment);
         }
 
+        for (Fragment fragment : fragments) {
+            Log.d("jadaswärs", "Fragment: " + fragment.getClass().getSimpleName());
+        }
+
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragments.get(0))
                 .commit();
+
+
 
         TextView prefix = findViewById(R.id.question_prefix);
         if(sections[sectionNumber].getPrefix().length() > 0){
@@ -276,33 +264,42 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
 
         if(questionnaire == questionnaireZTPB){
             if (lastQuestionReached) {
-
+                initFurtherQuestionnaires();
                 saveInputs();
                 screeningFinished = true;
-                //ArrayList<Questionnaire> ja =  assessZTPB();
-                String[] rofl = new String[2];
-                rofl[0] = "test 1";
-                rofl[1] = "test 2";
-                initOverview(rofl);
-
+                relevantQuestionnaires =  assessZTPB();
+                String[] relevantQuestionnairesTitles = new String[relevantQuestionnaires.size()];
+                for(int i = 0; i < relevantQuestionnairesTitles.length; i++){
+                   relevantQuestionnairesTitles[i] = relevantQuestionnaires.get(i).getTitle();
+                }
+                initOverview(relevantQuestionnairesTitles);
             }
         }
         if(lastQuestionReached){
-            if(questionnaire.getSections() != null){
+            if(questionnaire.getSections() != null && overviewShown){
                 initUIsections(questionnaire, questionnaire.getSections());
             }
         } else{
-            currentFrag++;
+
 
             Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
 
-            //@TODO restlichen Toasts noch implementieren
             if(currentFragment instanceof LikertFragment){
                 LikertFragment currentLikertFragment = (LikertFragment) currentFragment;
                 if(!currentLikertFragment.oneRadioButtonChecked()) {
                     Toast.makeText(this, "Bitte eine Antwort auswählen", Toast.LENGTH_SHORT).show();
+                    goOn = false;
+                } else {
+                    goOn = true;
                 }
             } else if(currentFragment instanceof ChipsFragment){
+               ChipsFragment currentLikertFragment = (ChipsFragment) currentFragment;
+                if(!currentLikertFragment.oneChipChecked()) {
+                    Toast.makeText(this, "Bitte eine Antwort auswählen", Toast.LENGTH_SHORT).show();
+                    goOn = false;
+                } else {
+                    goOn = true;
+                }
 
             } else if(currentFragment instanceof FreeTextFragment){
 
@@ -310,24 +307,25 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
                 SingleChoiceFragment currentSingleFragment = (SingleChoiceFragment) currentFragment;
                 if(!currentSingleFragment.oneRadioButtonChecked()) {
                     Toast.makeText(this, "Bitte eine Antwort auswählen", Toast.LENGTH_SHORT).show();
+                    goOn = false;
+                } else{
+                    goOn = true;
                 }
-
-            } else if(currentFragment instanceof ChipsFragment){
-
             }
+            if(goOn){
+                currentFrag++;
 
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, fragments.get(currentFrag))
-                    .commit();
-            questionText.setText(questions.get(currentQuestion).getQuestionText());
-            if(currentQuestion == numberOfQuestions-1){
-                continueButton.setText("Abschließen");
-                lastQuestionReached = true;
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, fragments.get(currentFrag))
+                        .commit();
+                questionText.setText(questions.get(currentQuestion).getQuestionText());
+                if(currentQuestion == numberOfQuestions-1){
+                    continueButton.setText("Abschließen");
+                    lastQuestionReached = true;
+                }
+                currentQuestion++;
+                updateProgressBar();
             }
-            currentQuestion++;
-            updateProgressBar();
-
-
         }
 
 
@@ -354,6 +352,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     }
 
     private void saveInputs(){
+        int i = 1;
         for(Fragment fragment: fragments){
 
             LikertFragment likert = (LikertFragment) fragment;
@@ -361,7 +360,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             SharedPreferences.Editor editor = preferences.edit();
 
             String input = likert.getCheckedRadioButtonText();
-            String key = "question_" + currentQuestion;
+            String key = "question_" + i;
 
             editor.putString(key, input);
             editor.apply();
@@ -369,31 +368,75 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             String savedResult = preferences.getString(key, "default_value");
 
             savedResults.put(key, savedResult);
+            i++;
         }
     }
 
+
+
     private void initFurtherQuestionnaires(){
         dassQuestionnaire = getQuestionnaireFromFile("DASS_fragebogen.json");
+        furtherQuestionnaires.add(dassQuestionnaire);
         //Questionnaire emotionsanalyse = getQuestionnaireFromFile("Emotionsanalyse.json");
         rosenbergSelfEsteem = getQuestionnaireFromFile("rosenberg_self_esteem_scale.json");
+        furtherQuestionnaires.add(rosenbergSelfEsteem);
         sek27 = getQuestionnaireFromFile("SEK-27_emotionale_Kompetenzen.json");
+        furtherQuestionnaires.add(sek27);
         wirf = getQuestionnaireFromFile("WIRF_ressourcen.json");
-        Log.d("quest", wirf.getTitle());
+        furtherQuestionnaires.add(wirf);
     }
 
     private void initOverview(String[] titles){
-        OverviewFragment tete = OverviewFragment.newInstance(titles);
+        Log.d("bin dort","");
+        OverviewFragment overview = OverviewFragment.newInstance(titles);
+        overview.setQuestionnaireClickedListener(this);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.intro_container,tete)
+                .replace(R.id.intro_container,overview)
                 .commit();
     }
 
     private ArrayList<Questionnaire> assessZTPB(){
-        ArrayList<Questionnaire> test = new ArrayList<>();
-        test.add(dassQuestionnaire);
-        test.add(rosenbergSelfEsteem);
-        return test;
+        ArrayList<Questionnaire> furtherQuestionnaires = new ArrayList<>();
+
+        for (HashMap.Entry<String, String> savedResult : savedResults.entrySet()) {
+            String key = savedResult.getKey();
+            String value = savedResult.getValue();
+
+            Log.d("key", key);
+            Log.d("value", value);
+
+            boolean criticalValue = value.equals("Weder noch") || value.equals("Trifft eher nicht zu") || value.equals("Trifft nicht zu");
+            if(key.equals("question_1") || key.equals("question_2") || key.equals("question_3") || key.equals("question_4")){
+                if(criticalValue){
+                    if(!furtherQuestionnaires.contains(wirf)){
+                        furtherQuestionnaires.add(wirf);
+                    }
+                }
+            }
+            if(key.equals("question_5") || key.equals("question_6") || key.equals("question_7") || key.equals("question_8")) {
+                if(criticalValue){
+                    if(!furtherQuestionnaires.contains(dassQuestionnaire)){
+                        furtherQuestionnaires.add(dassQuestionnaire);
+                    }
+                }
+            }
+            if(key.equals("question_9") || key.equals("question_10") || key.equals("question_11") || key.equals("question_12")) {
+                if (criticalValue) {
+                    if(!furtherQuestionnaires.contains(sek27)){
+                        furtherQuestionnaires.add(sek27);
+                    }
+                }
+            }
+            if(key.equals("question_37") || key.equals("question_38") || key.equals("question_39") || key.equals("question_40")) {
+                if (criticalValue) {
+                    if(!furtherQuestionnaires.contains(rosenbergSelfEsteem)){
+                        furtherQuestionnaires.add(rosenbergSelfEsteem);
+                    }
+                }
+            }
+        }
+        return furtherQuestionnaires;
     }
 
     @Override
@@ -408,6 +451,36 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             Section[] sections = questionnaire.getSections();
             showIntroSection(sections[0]);
             firstSectionIntroAlreadyShown = true;
+        }
+    }
+
+    @Override
+    public void onQuestionnaireClicked(String title) {
+        overviewShown = true;
+        for(Questionnaire questionnaire: relevantQuestionnaires){
+            if(title.equals(questionnaire.getTitle())){
+                if(questionnaire.getSections() != null){
+                    initUIsections(questionnaire, questionnaire.getSections());
+                } else {
+                    questions = manager.loadQuestionsFromQuestionnaire(questionnaire);
+                    initUI(questionnaire, questions);
+                    //Section[] test = wirf.getSections();
+                    //Log.d("huhuuu", test[0].getTitle());
+
+                    //questions = rosenbergSelfEsteem.getQuestions();
+                    //questions = manager.loadQuestionsFromQuestionnaire(rosenbergSelfEsteem);
+
+                    //questions = sek27.getQuestions();
+                    //questions = manager.loadQuestionsFromQuestionnaire(sek27);
+
+                    //for(Question quest: questions){
+                    //Log.d("wuri", quest.getQuestionText());
+                    //}
+
+                    //questionnaire = wirf;
+
+                }
+            }
         }
     }
 }
