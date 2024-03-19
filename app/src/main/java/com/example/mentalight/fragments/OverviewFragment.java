@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +70,7 @@ public class OverviewFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        view.setBackgroundColor(getResources().getColor(R.color.dark_blue));
+        view.setBackgroundColor(getResources().getColor(R.color.beige));
         if (titlesArray != null) {
             createButtonsForTitles(titlesArray);
         }

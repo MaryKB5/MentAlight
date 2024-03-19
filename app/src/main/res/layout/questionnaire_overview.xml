@@ -16,7 +16,7 @@
             android:textSize="33sp"
             android:textAlignment="center"
             android:layout_margin="20dp"
-            android:textColor="@color/beige">
+            android:textColor="@color/dark_blue">
 
         </TextView>
 

@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,6 +60,7 @@ public class LikertFragment extends Fragment {
             for (String text : inputTexts) {
                 RadioButton radioButton = new RadioButton(requireContext());
                 radioButton.setText(text);
+                radioButton.setTextColor(getResources().getColor(R.color.dark_blue));
                 radioButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 27);
 
                 ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(

@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -29,7 +28,6 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements OnStartButtonClickListener, OnQuestionnaireClickedListener{
     private Questionnaire questionnaire, rosenbergSelfEsteem, dassQuestionnaire, sek27, wirf, questionnaireZTPB, emotionsanalyse;
@@ -48,9 +46,9 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     private boolean introShown = false;
     private boolean goOn = true;
     private boolean lastQuestionReached;
-    private boolean screeningFinished = false;
+    private boolean isScreeningFinished = false;
     private boolean overviewShown = false;
-    private Button exitButton;
+    private ImageButton exitButton;
     private ProgressBar progressBar;
     private ArrayList<Fragment> fragments;
     private ArrayList<Question> questions;
@@ -61,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         questions = new ArrayList<>();
         questionnaire = new Questionnaire("", "", "", "", 0, questions);
         setContentView(R.layout.activity_main);
@@ -76,14 +75,33 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         exitButton = findViewById(R.id.exit_button);
         exitButton.setVisibility(View.GONE);
 
-        if (!screeningFinished) {
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        boolean isScreeningFinished = sharedPreferences.getBoolean("screeningFinished", false);
+
+        if (!isScreeningFinished) {
             displayScreening();
+        } else {
+            sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+            int size = sharedPreferences.getInt("questionnaireTitles_size", 0);
+            String[] relevantQuestionnairesTitles = new String[size];
+            for (int i = 0; i < size; i++) {
+                relevantQuestionnairesTitles[i] = sharedPreferences.getString("questionnaireTitle_" + i, null);
+            }
+
+            initOverview(relevantQuestionnairesTitles);
         }
 
     }
 
+
+    //@TODO wirf und emotionsanalyse nochmakl neu reinladne wenn die app fertig ist !!!
+
+
+
     // the ZTPB screening questionnaire should only be shown once
     private void displayScreening() {
+
         questionnaireZTPB = getQuestionnaireFromFile("ZTPB.json");
         questions = questionnaireZTPB.getQuestions();
         initUI(questionnaireZTPB, questions);
@@ -92,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     // initializing the user interface
     private void initUI(Questionnaire questionnaire, ArrayList<Question> questions) {
         showIntro(questionnaire);
-
         questionText.setText(questions.get(0).getQuestionText());
 
         numberOfQuestions = questionnaire.getNumQuest();
@@ -104,10 +121,6 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         for (Question question : questions) {
             Fragment fragment = createFragmentForInputType(question.getInputType().inputName, question);
             fragments.add(fragment);
-        }
-
-        for (Fragment fragment : fragments) {
-            Log.d("jadaswärs", "Fragment: " + fragment.getClass().getSimpleName());
         }
 
         getSupportFragmentManager().beginTransaction()
@@ -141,11 +154,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
 
         if(sections[sectionNumber].getSubsections() != null){
             subsections = sections[sectionNumber].getSubsections();
-            Log.d("subsection", Integer.toString(subsections.length));
             questions = subsections[subsectionNumber].getQuestions();
-            for (Question x : questions) {
-                Log.d("jadaswärs", x.getQuestionText());
-            }
             numberOfQuestions = subsections[subsectionNumber].getNumQuest();
         } else {
             questions = sections[sectionNumber].getQuestions();
@@ -178,7 +187,6 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             sectionNumber++;
         } else {
             if(subsectionNumber == subsections.length-1){
-                Log.d("jaschon", Integer.toString(sectionNumber));
                 sectionNumber++;
                 subsectionNumber = 0;
             }
@@ -259,12 +267,27 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             if (questionnaire == questionnaireZTPB) {
                 initFurtherQuestionnaires();
                 saveInputs();
-                screeningFinished = true;
+                isScreeningFinished = true;
+                SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("screeningFinished", isScreeningFinished);
+                editor.apply();
                 relevantQuestionnaires =  assessZTPB();
                 relevantQuestionnairesTitles = new String[relevantQuestionnaires.size()];
                 for(int i = 0; i < relevantQuestionnairesTitles.length; i++){
                    relevantQuestionnairesTitles[i] = relevantQuestionnaires.get(i).getTitle();
                 }
+
+
+                sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+                editor.putInt("questionnaireTitles_size", relevantQuestionnairesTitles.length);
+                for (int i = 0; i < relevantQuestionnairesTitles.length; i++) {
+                    editor.putString("questionnaireTitle_" + i, relevantQuestionnairesTitles[i]);
+                }
+                editor.apply();
+
+
 
                 initOverview(relevantQuestionnairesTitles);
             }
@@ -321,11 +344,8 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     private void backButtonClicked() {
         currentQuestion--;
         currentFrag--;
-        Log.d("current", Integer.toString(currentQuestion));
 
         if ((currentQuestion - 1) >= 0) {
-            Log.d("sers", questions.get(currentQuestion - 1).getQuestionText());
-
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, fragments.get(currentFrag))
                     .commit();
@@ -401,9 +421,6 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             String key = savedResult.getKey();
             String value = savedResult.getValue();
 
-            Log.d("key", key);
-            Log.d("value", value);
-
             boolean criticalValue = value.equals("Weder noch") || value.equals("Trifft eher nicht zu") || value.equals("Trifft nicht zu");
             if(key.equals("question_1") || key.equals("question_2") || key.equals("question_3") || key.equals("question_4")){
                 if(criticalValue){
@@ -449,7 +466,6 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             transaction.remove(fragment).commit();
         }
         if(questionnaire.getSections() != null && !firstSectionIntroAlreadyShown){
-            Log.d("hierja", "");
             Section[] sections = questionnaire.getSections();
             showIntroSection(sections[0]);
             firstSectionIntroAlreadyShown = true;

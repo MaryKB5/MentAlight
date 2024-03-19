@@ -14,8 +14,9 @@
         android:layout_height="64dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/baseline_arrow_circle_left_24"
-        android:layout_margin="5dp" />
+        android:src="@drawable/baseline_arrow_back_24"
+        android:layout_margin="5dp"
+        android:background="@color/beige"/>
 
 
     <TextView
@@ -30,14 +31,15 @@
         android:layout_marginTop="35dp">
     </TextView>
 
-    <Button
+    <ImageButton
         android:id="@+id/exit_button"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/baseline_close_24"
-        android:layout_marginTop="8dp"
+        android:src="@drawable/baseline_close_24"
+        android:layout_margin="5dp"
+        android:background="@color/beige"
         />
 
     <ProgressBar

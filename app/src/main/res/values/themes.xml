@@ -6,7 +6,11 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="android:textColor">@color/dark_blue</item>
-        <item name="android:fontFamily">serif</item>
+        <item name="drawableTint">@color/dark_blue</item>
+
+        <item name="android:fontFamily">sans-serif</item>
+
+        <item name="backgroundColor">@color/beige</item>
 
     </style>
 
