@@ -6,8 +6,9 @@ import android.content.res.AssetManager;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-
+// Eine Hilfsklasse zum Lesen von Dateien aus dem Assets-Verzeichnis
 public class AssetsReader {
+    // Methode zum Laden von JSON aus einer Assets-Datei
     public static String loadJsonFromAssets(Context context, String fileName) {
         String json = null;
         try {
@@ -22,7 +23,7 @@ public class AssetsReader {
                 inputStream.close();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Fehlermeldung ausgeben, falls ein Fehler beim Lesen der Datei auftritt
         }
         return json;
     }

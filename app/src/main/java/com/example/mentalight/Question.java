@@ -1,5 +1,5 @@
 package com.example.mentalight;
-
+// Eine Klasse zur Darstellung einer Frage
 public class Question {
     private int id;
     private String[] inputText;
@@ -13,7 +13,7 @@ public class Question {
         this.questionText = questionText;
         this.inputType = getEnumType(inputTypeText);
     }
-
+    // Methode zur Umwandlung des Eingabetyps in eine Enumeration
     private InputType getEnumType(String input) {
         switch (input) {
             case "likert_scale":
@@ -34,15 +34,17 @@ public class Question {
         }
         return inputType;
     }
-
+    // Methode zum Abrufen des Eingabetyps
     public InputType getInputType() {
         return inputType;
     }
 
+    // Methode zum Abrufen des Fragetexts
     public String getQuestionText() {
         return questionText;
     }
 
+    // Methode zum Abrufen der Eingabetexte
     public String[] getInputText() {
         return inputText;
     }

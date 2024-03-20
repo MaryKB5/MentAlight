@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        // Initialisierung der UI-Elemente
         questions = new ArrayList<>();
         questionnaire = new Questionnaire("", "", "", "", 0, questions);
         setContentView(R.layout.activity_main);
@@ -76,22 +76,22 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         exitButton.setVisibility(View.GONE);
 
 
+        // Überprüfen, ob das Screening abgeschlossen ist
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         boolean isScreeningFinished = sharedPreferences.getBoolean("screeningFinished", false);
 
         if (!isScreeningFinished) {
             displayScreening();
         } else {
+            // Überprüfen, ob relevante Fragebögen vorhanden sind
             sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
             int size = sharedPreferences.getInt("questionnaireTitles_size", 0);
             String[] relevantQuestionnairesTitles = new String[size];
             for (int i = 0; i < size; i++) {
                 relevantQuestionnairesTitles[i] = sharedPreferences.getString("questionnaireTitle_" + i, null);
             }
-
             initOverview(relevantQuestionnairesTitles);
         }
-
     }
 
 
@@ -99,23 +99,20 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
 
 
 
-    // the ZTPB screening questionnaire should only be shown once
+    // Anzeige des ZTPB-Screening-Fragebogens
     private void displayScreening() {
-
         questionnaireZTPB = getQuestionnaireFromFile("ZTPB.json");
         questions = questionnaireZTPB.getQuestions();
         initUI(questionnaireZTPB, questions);
     }
 
-    // initializing the user interface
+    // Initialisierung der Benutzeroberfläche
     private void initUI(Questionnaire questionnaire, ArrayList<Question> questions) {
+        // Anzeigen das Fragebogenintro mit Einführungstext an
         showIntro(questionnaire);
         questionText.setText(questions.get(0).getQuestionText());
-
         numberOfQuestions = questionnaire.getNumQuest();
         initProgressBar();
-
-
         fragments = new ArrayList<>();
 
         for (Question question : questions) {
@@ -136,6 +133,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         }
     }
 
+    // Initialisierung der Benutzeroberfläche, speziell für Abschnitte
     private void initUIsections(Questionnaire questionnaire, Section[] sections){
 
         if(!introShown){
@@ -194,6 +192,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         subsectionNumber++;
     }
 
+    // Initialisierung des Fortschrittsindikators
     private void initProgressBar() {
 
         progressBar = findViewById(R.id.progressBar);
@@ -204,11 +203,13 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         progressBar.setProgress(0);
     }
 
+    // Aktualisierung des Fortschrittsindikators
     private void updateProgressBar() {
         progressBar.setProgress(currentQuestion);
         progressText.setText(currentQuestion + "/" + numberOfQuestions);
     }
 
+    // Anzeigen der Fragebogeneinführung
     private void showIntro(Questionnaire questionnaire) {
         IntroFragment fragment = new IntroFragment();
         Bundle bundle = new Bundle();
@@ -222,6 +223,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
                 .commit();
     }
 
+    // Einführung für Abschnitte
     private void showIntroSection(Section section) {
         IntroFragment fragment = new IntroFragment();
         Bundle bundle = new Bundle();
@@ -234,7 +236,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
                 .commit();
     }
 
-
+    // Fragmenterstellung je nach Input-Typ
     private Fragment createFragmentForInputType(String inputType, Question question) {
         switch (inputType) {
             case "likert_scale":
@@ -252,6 +254,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         }
     }
 
+    // Fortsetzungsbutton wurde geklickt
     private void continueButtonClicked() {
 
         if(lastQuestionReached){
@@ -263,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             if(questionnaire.getSections() != null && overviewShown){
                 initUIsections(questionnaire, questionnaire.getSections());
             }
-
+            // Falls man sich im Anfangsscreening befindet, Speichern und Auswerten
             if (questionnaire == questionnaireZTPB) {
                 initFurtherQuestionnaires();
                 saveInputs();
@@ -278,7 +281,6 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
                    relevantQuestionnairesTitles[i] = relevantQuestionnaires.get(i).getTitle();
                 }
 
-
                 sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
                 editor = sharedPreferences.edit();
                 editor.putInt("questionnaireTitles_size", relevantQuestionnairesTitles.length);
@@ -287,16 +289,10 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
                 }
                 editor.apply();
 
-
-
                 initOverview(relevantQuestionnairesTitles);
             }
         } else{
             Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
-
-
-
-
 
              if(currentFragment instanceof LikertFragment){
                               LikertFragment currentLikertFragment = (LikertFragment) currentFragment;
@@ -324,6 +320,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
                                   goOn = true;
                               }
                           }
+             //Wenn Antwort ausgewählt ist, weitermachen...
             if(goOn){
                 currentFrag++;
 
@@ -341,6 +338,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         }
     }
 
+    // Zurückbutton geklickt, Anzeigen der vorhergehenden Frage
     private void backButtonClicked() {
         currentQuestion--;
         currentFrag--;
@@ -356,6 +354,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         }
     }
 
+    // Speichern der inputs des Anfangscreenings
     private void saveInputs(){
         int i = 1;
         for(Fragment fragment: fragments){
@@ -376,6 +375,8 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             i++;
         }
     }
+
+    // Einlesen des Fragebogens aus einer JSON-Datei
     public Questionnaire getQuestionnaireFromFile(String fileName) {
         String json = AssetsReader.loadJsonFromAssets(this, fileName);
         try {
@@ -387,7 +388,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     }
 
 
-
+    // Erstellen aller weiteren Fragebögen
     private void initFurtherQuestionnaires(){
         dassQuestionnaire = getQuestionnaireFromFile("DASS_fragebogen.json");
         furtherQuestionnaires.add(dassQuestionnaire);
@@ -401,6 +402,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         furtherQuestionnaires.add(emotionsanalyse);
     }
 
+    // Initialisierung der Übersichtsseite der weiteren, relevanten Fragebögen
     private void initOverview(String[] titles){
         OverviewFragment overview = OverviewFragment.newInstance(titles);
         overview.setQuestionnaireClickedListener(this);
@@ -414,6 +416,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         });
     }
 
+    // Auswertung des Anfangsscreenings und Rückgabe der Liste mit nutzerspezifischen Folgefragebögen je nach Eingaben beim Anfangsscreening
     private ArrayList<Questionnaire> assessZTPB(){
         ArrayList<Questionnaire> furtherQuestionnaires = new ArrayList<>();
 
@@ -457,6 +460,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         return furtherQuestionnaires;
     }
 
+    // Methode, die aufgerufen wird, wenn der Startknopf des Fragebogens geklickt wird
     @Override
     public void onStartButtonClicked() {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -472,6 +476,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
         }
     }
 
+    // Methode, die aufgerufen wird, wenn ein Fragebogen in der Übersicht geklickt wird, Vorbereitung des Fragebogen
     @Override
     public void onQuestionnaireClicked(String title) {
         overviewShown = true;
@@ -489,6 +494,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
             }
         }
     }
+    // Verlassenknopf gedrückt, Zurückkommen zur Übersicht
     private void exitButtonClicked(){
         overviewShown = false;
         sectionNumber = 0;

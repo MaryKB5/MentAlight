@@ -1,5 +1,5 @@
 package com.example.mentalight;
-
+// Eine Enumeration zur Darstellung verschiedener Arten von Eingabemöglichkeiten
 public enum InputType {
     LIKERT("likert_scale"),
     SINGLE("single_choice"),

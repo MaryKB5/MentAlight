@@ -12,12 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.mentalight.R;
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SingleChoiceFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+// Ein Fragment für die Auswahl einer einzelnen Option
 public class SingleChoiceFragment extends Fragment {
 
     private static final String INPUT = "input_texts";
@@ -27,10 +22,10 @@ public class SingleChoiceFragment extends Fragment {
 
 
     public SingleChoiceFragment() {
-        // Required empty public constructor
+        // Leerer öffentlicher Konstruktor, der für Fragmente erforderlich ist
     }
 
-    // TODO: Rename and change types and number of parameters
+    // Methode zum Erstellen einer neuen Instanz von SingleChoiceFragment mit übergebenen Eingabetexten
     public static SingleChoiceFragment newInstance(String[] inputTexts) {
         SingleChoiceFragment fragment = new SingleChoiceFragment();
         Bundle args = new Bundle();
@@ -38,6 +33,7 @@ public class SingleChoiceFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
 
 
     @Override
@@ -66,7 +62,7 @@ public class SingleChoiceFragment extends Fragment {
         return view;
     }
 
-
+    // Methode zur Überprüfung, ob mindestens ein RadioButton ausgewählt ist
     public boolean oneRadioButtonChecked() {
         int checkedRadioButtonId = radioGroup.getCheckedRadioButtonId();
 

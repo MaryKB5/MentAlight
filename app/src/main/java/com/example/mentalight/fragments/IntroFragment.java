@@ -36,7 +36,7 @@ public class IntroFragment extends Fragment {
     private OnStartButtonClickListener listener;
 
     public IntroFragment() {
-        // Required empty public constructor
+        // Leerer öffentlicher Konstruktor, der für Fragmente erforderlich ist
     }
 
     public static IntroFragment newInstance(String param1, String param2) {
@@ -94,10 +94,12 @@ public class IntroFragment extends Fragment {
         return view;
     }
 
+    // Methode zum Aktualisieren des Titels
     private void updateTitle(String newText) {
         title.setText(newText);
     }
 
+    // Methode zum Aktualisieren der Einführung
     private void updateIntro(String newText) {
         intro.setText(newText);
     }

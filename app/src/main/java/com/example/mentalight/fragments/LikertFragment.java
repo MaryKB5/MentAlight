@@ -14,6 +14,7 @@ import android.widget.RadioGroup;
 import com.example.mentalight.R;
 import com.google.android.material.radiobutton.MaterialRadioButton;
 
+// Eine Fragmentklasse für Likert-Skalen
 
 public class LikertFragment extends Fragment {
 
@@ -32,6 +33,7 @@ public class LikertFragment extends Fragment {
     }
 
 
+    // Methode zum Erstellen einer neuen Instanz von LikertFragment mit übergebenen Eingabetexten
     public static LikertFragment newInstance(String[] inputTexts) {
         LikertFragment fragment = new LikertFragment();
         Bundle args = new Bundle();
@@ -75,11 +77,13 @@ public class LikertFragment extends Fragment {
         }
         return view;
     }
+    // Methode zur Konvertierung von dp in Pixel
     private int dpToPx(int dp) {
         float density = getResources().getDisplayMetrics().density;
         return Math.round((float) dp * density);
     }
 
+    // Methode zum Abrufen des Texts des ausgewählten RadioButtons
     public String getCheckedRadioButtonText() {
         int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
         if (selectedRadioButtonId != -1) {
@@ -92,6 +96,7 @@ public class LikertFragment extends Fragment {
         }
     }
 
+    // Methode zur Überprüfung, ob mindestens ein RadioButton ausgewählt ist
     public boolean oneRadioButtonChecked() {
         int checkedRadioButtonId = radioGroup.getCheckedRadioButtonId();
 

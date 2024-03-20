@@ -23,11 +23,9 @@ import com.example.mentalight.R;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link OverviewFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
+
+// Ein Fragment zur Übersicht über Fragebögen
 public class OverviewFragment extends Fragment {
 
     private static final String ARG_TITLES_ARRAY = "titles_array";
@@ -39,6 +37,7 @@ public class OverviewFragment extends Fragment {
     public OverviewFragment() {
         // Required empty public constructor
     }
+    // Methode zum Erstellen einer neuen Instanz von OverviewFragment mit übergebenen Titeln für Fragebögen
     public static OverviewFragment newInstance(String[] titlesArray) {
         OverviewFragment fragment = new OverviewFragment();
         Bundle args = new Bundle();
@@ -47,6 +46,7 @@ public class OverviewFragment extends Fragment {
         return fragment;
     }
 
+    // Methode zum Setzen des Listeners für den Klick auf einen Fragebogen
     public void setQuestionnaireClickedListener(OnQuestionnaireClickedListener listener) {
         this.questionnaireClickedListener= listener;
     }
@@ -76,6 +76,7 @@ public class OverviewFragment extends Fragment {
         }
     }
 
+    // Methode zum dynamischen Erstellen von Buttons für die Titel der Fragebögen
     private void createButtonsForTitles(String[] titlesArray) {
         LinearLayout buttonContainer = view.findViewById(R.id.questionnaire_container);
         for (String title : titlesArray) {

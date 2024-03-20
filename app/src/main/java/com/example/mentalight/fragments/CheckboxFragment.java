@@ -29,6 +29,7 @@ public class CheckboxFragment extends Fragment {
         // Required empty public constructor
     }
 
+    // Methode zum Erstellen einer neuen Instanz von CheckboxFragment mit übergebenen CheckBox-Texten
     public static CheckboxFragment newInstance(String[] checkBoxTexts) {
         CheckboxFragment fragment = new CheckboxFragment();
         Bundle args = new Bundle();

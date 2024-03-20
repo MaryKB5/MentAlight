@@ -10,13 +10,16 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+// Eine Klasse zur Verwaltung von Fragebögen und deren Parsing aus JSON
 public class QuestionnaireManager {
-    Questionnaire questionnaire, wirf, sek27, rosenbergSelfEsteem, dassQuestionnaire;
+    Questionnaire questionnaire;
+
+    // Methode zum Parsen eines Fragebogens aus JSON
     public Questionnaire parseQuestionnaireJson(String json) throws JSONException {
         JSONObject jsonObject = new JSONObject(json);
         String title = jsonObject.getString("title");
 
+        // Untertitel, Präfix, Einleitungstext und Anzahl der Fragen aus dem JSON-Objekt extrahieren
         String subtitle, prefix, intro;
         if(jsonObject.has("intro_text")){
             intro = jsonObject.getString("intro_text");
@@ -40,6 +43,7 @@ public class QuestionnaireManager {
             numQuest = 0;
         }
 
+        // Prüfen, ob der Fragebogen Abschnitte enthält
         if(jsonObject.has("sections")){
             Section[] sectionArray = getSections(jsonObject);
             questionnaire = new Questionnaire(title, intro, subtitle, prefix, numQuest , sectionArray);
@@ -51,6 +55,7 @@ public class QuestionnaireManager {
         return questionnaire;
     }
 
+    // Methode zum Extrahieren einer Liste von Fragen aus einem JSON-Objekt
     private ArrayList<Question> getQuestionList(JSONObject object) throws JSONException {
         JSONArray questionsArray = object.getJSONArray("questions");
         ArrayList<Question> questions = new ArrayList<>();
@@ -59,6 +64,7 @@ public class QuestionnaireManager {
             JSONObject questionObject = questionsArray.getJSONObject(i);
             JSONArray inputTextArray = questionObject.getJSONArray("input_text");
 
+            // Eingabetexte der Frage in ein String-Array umwandeln
             String[] inputText = new String[inputTextArray.length()];
             for (int j = 0; j < inputTextArray.length(); j++) {
                 inputText[j] = inputTextArray.getString(j);
@@ -74,6 +80,7 @@ public class QuestionnaireManager {
         return questions;
     }
 
+    // Methode zum Extrahieren von Abschnitten aus einem JSON-Objekt
     private Section[] getSections(JSONObject object) throws JSONException {
         JSONArray sectionsArray = object.getJSONArray("sections");
         Section[] sections = new Section[sectionsArray.length()];
@@ -102,6 +109,8 @@ public class QuestionnaireManager {
             } else {
                 numQuest = 0;
             }
+
+            // Prüfen, ob der Abschnitt Unterelemente enthält
             if(sectionObject.has("subsections")){
                 Log.d("moinmoin","");
                 Subsection[] subsectionsArray = getSubsections(sectionObject);
@@ -109,9 +118,6 @@ public class QuestionnaireManager {
                 sections[i] = section;
             } else {
                 ArrayList<Question> questions = getQuestionList(sectionObject);
-                for(Question test: questions){
-                    Log.d("und hier", test.getQuestionText());
-                }
                 Section section = new Section(title, subtitle, intro, prefix, numQuest, questions);
                 sections[i] = section;
             }
@@ -119,6 +125,7 @@ public class QuestionnaireManager {
         return sections;
     }
 
+    // Methode zum Extrahieren von Subabschnitten aus einem JSON-Objekt
     private Subsection[] getSubsections(JSONObject object) throws JSONException {
         JSONArray subsectionsArray = object.getJSONArray("subsections");
         Subsection[] subsections = new Subsection[subsectionsArray.length()];
@@ -147,9 +154,9 @@ public class QuestionnaireManager {
             } else {
                 numQuest = 0;
             }
-            Log.d("und hier", "");
+            // Fragenliste aus dem JSON-Objekt extrahieren
             ArrayList<Question> questions = getQuestionList(subsectionObject);
-
+            // Neuen Subabschnitt mit den extrahierten Fragen erstellen
             Subsection subsection = new Subsection(title, subtitle, intro, prefix, numQuest, questions);
             subsections[i] = subsection;
         }

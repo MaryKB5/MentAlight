@@ -32,7 +32,7 @@ public class ChipsFragment extends Fragment {
         // Required empty public constructor
     }
 
-
+    // Methode zum Erstellen einer neuen Instanz von ChipsFragment mit übergebenen Eingabetexten
     public static ChipsFragment newInstance(String[] inputTexts) {
         ChipsFragment fragment = new ChipsFragment();
         Bundle args = new Bundle();
@@ -72,7 +72,7 @@ public class ChipsFragment extends Fragment {
         }
     }
 
-
+    // Methode zum Überprüfen, ob mindestens ein Chip ausgewählt ist
     public boolean oneChipChecked() {
         int checkedChipId = chipGroup.getCheckedChipId();
         return checkedChipId != View.NO_ID;
