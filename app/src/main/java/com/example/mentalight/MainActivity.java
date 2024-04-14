@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements OnStartButtonClic
     }
 
 
-    //@TODO wirf und emotionsanalyse nochmakl neu reinladne wenn die app fertig ist !!!
+
 
 
 
