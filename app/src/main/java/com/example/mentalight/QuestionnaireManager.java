@@ -1,7 +1,6 @@
 package com.example.mentalight;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -112,7 +111,6 @@ public class QuestionnaireManager {
 
             // Prüfen, ob der Abschnitt Unterelemente enthält
             if(sectionObject.has("subsections")){
-                Log.d("moinmoin","");
                 Subsection[] subsectionsArray = getSubsections(sectionObject);
                 Section section = new Section(title, subtitle, intro, prefix, numQuest, subsectionsArray);
                 sections[i] = section;
