@@ -5,6 +5,7 @@ Mentalight is part of a mental health app designed to provide questionnaires to 
 
 ## Features
 **Screening:** Assess your mental well-being with the screening questionnaire.
+
 **Further Questionnaires:** Engage in self-assessment with individually relevant surveys covering various aspects of mental health, including emotion analysis, stress, and more. These questionnaires are provided based on your Screening results.
   
 
